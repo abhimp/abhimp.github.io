@@ -1,0 +1,138 @@
+- title: An ns3-based Energy Module of 5G NR User Equipments for Millimeter wave Networks
+  authors:
+    - Argha Sen
+    - Abhijit Mondal
+    - Basabdatta Palit
+    - Jay Jayatheerthan
+    - Krishna Paul
+    - Sandip Chakraborty
+  publisher: IEEE INFOCOM Poster 2021
+  year: 2021
+  type: conf
+  key: 2021_infocomm
+  links:
+    PDF: Paper.pdf
+
+- title: "PARIMA: Viewport Adaptive 360-Degree Video Streaming"
+  authors:
+    - Lovish Chopra
+    - Sarthak Chakraborty
+    - Abhijit Mondal
+    - Sandip Chakraborty
+  publisher: The Web Conference (Erstwhile WWW) 2021
+  year: 2021
+  type: conf
+  key: 2021_WWW
+  links:
+    PDF: Paper.pdf
+
+- title: System Call Interception for Serverless Isolation
+  authors:
+    - Nishant Somy
+    - Abhijit Mondal
+    - Bishakh Ghosh
+    - Sandip Chakraborty
+  publisher: ACM SIGCOMM 2020 Demos and Posters
+  year: 2020
+  type: conf
+  key: 2020_SIGCOMM_Poster
+  links:
+    PDF: Paper.pdf
+    POSTER: Poster.pdf
+    VR: http://hub.link/2mVGCc8
+
+- title: Federated Adaptive Bitrate Live Streaming over Locality Sensitive Playback Coalitions
+  authors:
+    - Abhijit Mondal
+    - Sandip Chakraborty
+  publisher: ACM SIGCOMM NAI 2020
+  year: 2020
+  type: conf
+  key: 2020_NAI
+  links:
+    PDF: Paper.pdf
+    ACM: https://dl.acm.org/doi/abs/10.1145/3405672.3405806
+    PPT: Presentation.pdf
+    VIDEO: https://youtu.be/3c4P2dux0v0
+
+- title: _EnDASH_ - A Mobility Adapted Energy Efficient ABR Video Streaming for Cellular Networks
+  authors:
+    - Abhijit Mondal
+    - Basabdatta Palit
+    - Somesh Khandelia
+    - Nibir Pal
+    - Jay Jayatheerthan
+    - Krishna Paul
+    - Niloy Ganguly
+    - Sandip Chakraborty
+  publisher: IEEE IFIP Networking 2020
+  year: 2020
+  type: conf
+  key: 2020_IFIP
+  links:
+    URL: https://abhijitmondal.in/EnDASH/
+    PDF: Paper.pdf
+    IEEE: https://ieeexplore.ieee.org/abstract/document/9142696
+    PPT: Presentation.pdf
+    VIDEO: https://youtu.be/_uTWF0iVPAA
+
+- title: Does QUIC Suit Well with Modern Adaptive Bitrate Streaming Techniques?
+  authors:
+    - Abhijit Mondal
+    - Sandip Chakraborty
+  publisher: IEEE Networking Letters 2.2 2020
+  year: 2020
+  type: journal
+  key: 2020_CommLetter
+  links:
+    PDF: Paper.pdf
+    IEEE: https://ieeexplore.ieee.org/document/9084148
+
+- title: "An Experimental Study of C-RAN Fronthaul Workload Characteristics: Protocol Choice and Impact on Network Performance"
+  authors:
+     - Venu Balaji Vinnakota
+     - Naganithin Manne
+     - Abhijit Mondal
+     - Debarati Sen
+     - Sandip Chakraborty
+  publisher: IEEE VTC 2019-Spring
+  year: 2019
+  type: conf
+  key: 2019_VTC
+  links:
+    PDF: Paper.pdf
+    IEEE: https://ieeexplore.ieee.org/abstract/document/8746288
+
+- title: "Viscous: An End to End Protocol for Ubiquitous Communication Over Internet of Everything"
+  authors:
+    - Abhijit Mondal
+    - Sourav Bhattacharjee
+    - Sandip Chakraborty
+  publisher: IEEE LCN 2017
+  year: 2017
+  type: conf
+  key: 2017_LCN
+  links:
+    URL: https://abhimp.github.io/Viscous
+    PDF: Paper.pdf
+    IEEE: http://ieeexplore.ieee.org/document/8109371/
+    PPT: Presentation.pptx
+
+- title: "Candid with YouTube: Adaptive Streaming Behavior and Implications on Data Consumption"
+  authors:
+    - Abhijit Mondal
+    - Satadal Sengupta
+    - B.R. Reddy
+    - M.J.V. Koundinya
+    - Chander G.
+    - Pradipta De
+    - Niloy Ganguly
+    - Sandip Chakraborty
+  publisher: ACM SIGMM NOSSDAV 2017
+  year: 2017
+  type: conf
+  key: 2017_NOSSDAV
+  links:
+    PDF: Paper.pdf
+    ACM: http://dl.acm.org/citation.cfm?id=3083177
+    PPT: Presentation.pptx

@@ -1,0 +1,230 @@
+---
+layout: subpage
+---
+<style>
+/* The Modal (background) */
+.travel.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.travel.modal-content {
+  position: relative;
+  /* background-color: #fefefe; */
+  margin: auto;
+  padding: 0;
+  /* width: 90%;
+  max-width: 1200px; */
+  max-width: 90%;
+}
+
+/* The Close Button */
+.travel.modalclose {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.travel.modalclose:hover,
+.travel.modalclose:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.travel.mySlides {
+  display: none;
+  width: fit-content;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.travel.prev,
+.travel.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+/* Position the "next button" to the right */
+.travel.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.travel.prev:hover,
+.travel.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.travel.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.travel.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.travel.demo {
+  opacity: 0.6;
+}
+
+.travel.active,
+.travel.demo:hover {
+  opacity: 1;
+}
+
+img.travel {
+  transition: 0.3s;
+  max-width: 100%;
+  max-height: 60vh;
+}
+
+img.travel.imgSlide {
+    display: block;
+    margin: 0 auto;
+}
+
+img.travel:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.travel.yt-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.travel.yt-responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.travel h1, .travel h2, .travel h3, .travel h4,
+.travel .h1, .travel .h2, .travel .h3, .travel .h4 {
+  font-weight: 500;
+}
+
+.travel h1, .travel .h1 {
+  font-size: 2.1em;
+}
+
+.travel h2, .travel .h2 {
+  font-size: 1.8em;
+}
+
+.travel h3, .travel .h3 {
+  font-size: 1.25em;
+}
+
+.travel h4, .travel .h4 {
+  font-size: 1em;
+}
+
+.pswp__custom-caption {
+  /* background: rgba(75, 150, 75, 0.75); */
+  /* font-size: 16px; */
+  color: #fff;
+  width: calc(100% - 32px);
+  /* max-width: 400px; */
+  padding: 2px 8px;
+  border-radius: 4px;
+  position: absolute;
+  /* left: 50%; */
+  bottom: 16px;
+  text-align: center;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+               1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  /* transform: translateX(-50%); */
+}
+
+</style>
+<section id="content">
+    <div class="container system">
+        <div class="row">
+            <div class="col-3 col-12-medium nomargin">
+
+                <!-- Sidebar -->
+                    <section>
+                        {% include sb21/top_travel.html %}
+                    </section>
+                    <section>
+                        {% include sb21/bottom.html %}
+                    </section>
+
+            </div>
+            <div class="col-9 col-12-medium imp-medium">
+
+                <!-- Main Content -->
+                    <section class="travel">
+                        {{ content }}
+                    </section>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="myModal" class="travel modal">
+    <!-- <span class="travel modalclose cursor" onclick="closeModal()">&times;</span> -->
+    <div class="travel modal-content" id="myModalContent">
+
+      <!-- <div class="mySlides">
+        <div class="numbertext">4 / 4</div>
+        <img src="img4_wide.jpg" style="width:100%">
+      </div> -->
+
+      <!-- Next/previous controls -->
+      <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a> -->
+      <!-- <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+
+      <!-- Caption text -->
+      <!-- <div class="caption-container">
+        <p id="caption"></p>
+      </div> -->
+    </div>
+  </div>
+
+
+

@@ -1,0 +1,21 @@
+---
+layout: subpage
+---
+
+<section id="content">
+    <div class="container system">
+        <div class="row">
+            <div class="col-12 imp-medium">
+
+                <!-- Main Content -->
+                    <section>
+                        {{ content }}
+
+                        <p>This page should redirected to <a href="{{ page.redirect }}">{{ page.redirect }}</a>.</p>
+                        <p><a href="{{ page.redirect }}">Click Here</a> if not.</p>
+                    </section>
+
+            </div>
+        </div>
+    </div>
+</section>

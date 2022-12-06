@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- Logo -->
+                <h1><a href="{{ site.baseurl }}/" id="logo">Abhijit Mondal</a></h1>
+{% assign pages_list = site.pages | sort: 'menu_order' %}
+{% assign pages_list_travel = pages_list | where: "menutype", "travel"  | sort: 'url' | sort: 'menu_order' | reverse | slice: 0,5 %}
+            <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/">Homepage</a></li>
+                        <li>
+                          <a class="{% if page.layout == "about" %} current{% endif %}" href="#" >About</a>
+                          <ul>
+                            {% for node in pages_list %}
+                              {% if node.title != null %}
+                                {% if node.menutype == "about" %}
+                                  <li><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+                                {% endif %}
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </li>
+                        <li>
+                          <a class="{% if page.layout == "about" %} current{% endif %}" href="#" >Travel</a>
+                          <ul>
+                            {% for node in pages_list_travel %}
+                              {% if node.title != null %}
+                                {% if node.menutype == "travel" %}
+                                  <li><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{% if node.menutitle != null %}{{ node.menutitle }}{% else %}{{ node.title }}{% endif %}</a></li>
+                                {% endif %}
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </li>
+                        <li>
+                            <!--<a class="nav-link dropdown-toggle h5{% if page.layout == "system" %} current{% endif %}" href="#" data-toggle="dropdown" >&#2438;&#2476;&#2507;&#2482; &#2468;&#2494;&#2476;&#2507;&#2482;</a>-->
+                          <a class="{% if page.layout == "system" %} current{% endif %}" href="#" >Arbit</a>
+                          <ul>
+                            {% for node in pages_list %}
+                              {% if node.title != null %}
+                                {% if node.menutype == "system" %}
+                                  <li><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+                                {% endif %}
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </li>
+                        <!-- <li><a href="threecolumn.html">Three Column</a></li>
+                        <li><a href="twocolumn1.html">Two Column #1</a></li>
+                        <li><a href="twocolumn2.html">Two Column #2</a></li>
+                        <li><a href="onecolumn.html">One Column</a></li> -->
+                    </ul>
+                </nav>
+
+        </div>
+    </div>
+</div>

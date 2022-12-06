@@ -1,0 +1,31 @@
+encoding: utf-8
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+plugins:          [jekyll-paginate]
+# Permalinks
+# permalink:        pretty
+permalink: /:basename/
+
+# Setup
+title:            The First International Conference on AI-ML-Systems
+tagline:          An Initiative of the COMSNETS Association
+url:              https://abhijitmondal.in
+baseurl:          ""
+
+author:
+  name:           'Abhijit Mondal'
+  url:            https://abhijitmondal.in
+
+github:
+    repo:           https://github.com/abhimp/
+
+# paginate:         5
+paginate_path:    "blog/page:num/"
+paginate: 2
+# Custom vars
+version:          2.1.0
+
+
+
+repository: abhimp/abhimp.github.io

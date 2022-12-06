@@ -1,0 +1,4 @@
+{%- capture year -%}{{ page.assetPath | slice: 0,4 }}{%- endcapture -%}
+{%- capture imgpath -%}/images/travel/{{ year }}/{{ page.assetPath }}/reduced/{{ include.img }}{%- endcapture -%}
+
+![{{ include.alt }}](https://abhimp.gitlab.io/trimg{{ year }}/{{ page.assetPath }}/reduced/{{ include.img }}){:origimg="https://abhimp.gitlab.io/trimg{{ year }}/{{ page.assetPath }}/moded/{{ include.img }}" class="travel" data-origheight="{{ site.data.images[imgpath].dim[1] }}" data-origwidth="{{ site.data.images[imgpath].dim[0] }}" {% if include.caption %} data-caption="{{ include.caption }}" {% endif %}}

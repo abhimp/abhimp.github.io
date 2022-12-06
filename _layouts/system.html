@@ -1,0 +1,29 @@
+---
+layout: subpage
+---
+
+<section id="content">
+    <div class="container system">
+        <div class="row">
+            <div class="col-3 col-12-medium nomargin">
+
+                <!-- Sidebar -->
+                    <section>
+                        {% include sb21/top_system.html %}
+                    </section>
+                    <section>
+                        {% include sb21/bottom.html %}
+                    </section>
+
+            </div>
+            <div class="col-9 col-12-medium imp-medium">
+
+                <!-- Main Content -->
+                    <section>
+                        {{ content }}
+                    </section>
+
+            </div>
+        </div>
+    </div>
+</section>

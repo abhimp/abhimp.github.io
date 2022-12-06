@@ -1,0 +1,3 @@
+[submodule "propImages"]
+	path = propImages
+	url = https://gitlab.com/abhimp/travelimages

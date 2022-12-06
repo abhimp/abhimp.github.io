@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+/* #nav {
+} */
+#nav > ul {
+	display: inline-block;
+	margin: 0 0 0 0;
+}
+#nav > ul > li {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+#nav > ul > li > a {
+	margin-left: 10px;
+	/*line-height: 3em;*/
+}
+
+/* #header h1 {
+	bottom:  5px;
+} */
+
+.text-center {
+	text-align: center;
+}
+
+pre {
+
+    display: block;
+    font-size: 87.5%;
+    color: #212529;
+
+}
+pre {
+
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+
+}
+
+code, kbd, pre, samp {
+	/* font: revert; */
+	font-family: 'Ubuntu Mono', monospace;
+	/* font-variant: ; */
+	font-size: 85%;
+	line-height: 1.7em;
+	color: #8a3e3e;
+}
+code > pre, pre > code {
+	font-size: 100%;
+}
+
+/* div.highlighter-rouge {
+	margin-left: 1em;
+} */
+
+/* p + .highlighter-rouge {
+	margin-top: -1.5em;
+} */
+
+.system p {
+	margin-bottom: .5em;
+}
+
+
+#navPanel .indent-1 {
+    display: inline-block;
+    width: 1em;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-center {
+    margin: 0 auto;
+    display: block;
+}
+
+.no-herf-hl a, #content .no-herf-hl a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.no-herf-hl a:hover, #content .no-herf-hl a:hover {
+	text-decoration: none;
+	color: #ED391B;
+}
+
+
+/* #nav ul { list-style: none; margin: 0; padding: 0; } */
+/* #nav ul li { display: inline-block; margin: 0 1em 0 1em; padding: 0.35em 0.75em 0.35em 0.75em; border-radius: 0.5em; } */
+/* #nav ul li.active { background: #999; } */
+/* #nav ul li.active a { color: #fff; text-decoration: none; } */
+.dropotron { background: #3B4346 url("images/bg01.jpg"); border-radius: 0.5em; list-style: none; margin: 0; min-width: 10em; padding: 0.75em 1em 0.75em 1em; }
+.dropotron > li { border-top: solid 1px #555; margin: 0; padding: 0; }
+.dropotron > li:first-child { border-top: 0; }
+.dropotron > li > a { color: #ccc; display: block; padding: 0.5em 0 0.5em 0; text-decoration: none; }
+.dropotron > li.active > a, .dropotron > li:hover > a { color: #fff; }
+/* .dropotron.level-0 { margin-top: 1.25em; } */
+/* .dropotron.level-0:before { content: ''; position: absolute; border-bottom: solid 0.5em #444; border-left: solid 0.5em transparent; border-right: solid 0.5em transparent; top: -0.5em; } */
+#nav .opener>a:after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+
+#content a.current {
+	color: black;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+#normal-text h1,
+#normal-text h2,
+#normal-text h3,
+#normal-text h4,
+#normal-text h5,
+#normal-text h5,
+#normal-text h6{
+	color: #96a9b5;
+	margin-bottom: 1em;
+}
+
+
+#normal-text p {
+	margin-bottom: 2em;
+}
+
+#normal-text h1{
+	font-size: 2em;
+}
+#normal-text h2{
+	font-size: 1.75em;
+}
+#normal-text h3{
+	font-size: 1.5em;
+}
+#normal-text h4{
+	font-size: 1.25em;
+}
+#normal-text h5{
+	font-size: 1em;
+}
+#normal-text h6{
+	font-size: .75em;
+}
+
+#normal-text em, #normal-text i {
+	font-style: italic;
+}
+
+#normal-text strong, #normal-text b {
+	font-weight: 400;
+}
+
+#normal-text a.authorlink {
+    color: #575757;
+    text-decoration: underline;
+}
+
+#normal-text a.authorlink:hover {
+    color: #ED391B;
+}
+
+#normal-text, .text-justify{
+    text-align: justify;
+}
+
+#content a.nohighlight {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+#content a.nohighlight:hover {
+	color: #ED391B;
+}
+
+#normal-text .nomargin,
+#normal-text .nomargin h1,
+#normal-text .nomargin h2,
+#normal-text .nomargin h3,
+#normal-text .nomargin h4,
+#normal-text .nomargin h5,
+#normal-text .nomargin h6 {
+	margin: 0;
+}
