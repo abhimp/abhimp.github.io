@@ -20,6 +20,11 @@ author:
 github:
     repo:           https://github.com/abhimp/
 
+collections:
+  wpages:
+    output: true
+    permalink: /:path
+
 # paginate:         5
 paginate_path:    "blog/page:num/"
 paginate: 2

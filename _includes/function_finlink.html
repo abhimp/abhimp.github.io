@@ -1,11 +1,11 @@
 {%- if include.page -%}
-{% for node in site.pages %}
+{% for node in site.wpages %}
 {%- if node.name == include.page -%}
 {{ site.baseurl }}{{ node.url }}
 {%- endif -%}
 {% endfor %}
 {%- elsif include.plink -%}
-{% for node in site.pages %}
+{% for node in site.wpages %}
 {%- if node.plink == include.plink -%}
 {{ site.baseurl }}{{ node.url }}
 {%- endif -%}
