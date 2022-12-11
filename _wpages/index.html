@@ -90,7 +90,12 @@ title: Home
 						<h2>Leisure</h2>
 						<!-- <h3>Ph.D. from IIT Kharagpur</h3> -->
 					</header>
-					<a href="https://photos.app.goo.gl/T7WpW13grTquFaSR2" target="blank" class="feature-image"><img src="{{ site.baseurl }}/assets/fpageimg/leisure3.jpg" alt="grayscale-60 nograyscalehover" class="" /></a>
+{% assign pages_list_travel = site.wpages | where: "menutype", "travel"  | sort: 'url' | sort: 'menu_order' | reverse %}
+{% assign node = pages_list_travel[0] %}
+					<!-- <a href="https://photos.app.goo.gl/T7WpW13grTquFaSR2" target="blank" class="feature-image"> -->
+					<a href="{{ site.baseurl }}{{ node.url }}" target="_blank" class="feature-image">
+						<img src="{{ site.baseurl }}/assets/fpageimg/leisure3.jpg" alt="grayscale-60 nograyscalehover" class="" />
+					</a>
 					<p class="text-center">
 						<span title="Another surprise I see.">এ যে বিস্ময় দেখি অন্য।</span> <br>
 						<span title="A forest in the wild.">এ যে বন্য এ অরণ্য।</span> <br>
