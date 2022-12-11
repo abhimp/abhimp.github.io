@@ -8,8 +8,8 @@ plugins:          [jekyll-paginate]
 permalink: /:basename/
 
 # Setup
-title:            The First International Conference on AI-ML-Systems
-tagline:          An Initiative of the COMSNETS Association
+title:            Abhijit Mondal
+tagline:          This is a simple website about me and my work.
 url:              https://abhijitmondal.in
 baseurl:          ""
 
