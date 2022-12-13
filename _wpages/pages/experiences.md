@@ -7,7 +7,10 @@ menu_order: 40
 
 ## VDX.TV
 #### Senior Engineer // Remote, India // 2021 - 
+
 {:.text-justify}
+VDX.TV is an online advertisement provider. We serve advertising to websites and Internet TVs. While we have a vast product line in online advertisement, I work in the team directly responsible for serving advertisements on websites or Internet TVs. The company's revenue depends on the availability and performance of our servers.
+
 
 ## Rovi Incorporation
 #### Software Engineer // Bangalore, India // 2012 - 2015
