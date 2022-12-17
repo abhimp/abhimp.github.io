@@ -5,7 +5,7 @@
             <!-- Logo -->
                 <h1><a href="{{ site.baseurl }}/" id="logo">Abhijit Mondal</a></h1>
 {% assign pages_list = site.wpages | sort: 'menu_order' %}
-{% assign pages_list_travel = pages_list | where: "menutype", "travel"  | sort: 'url' | sort: 'menu_order' | reverse | slice: 0,5 %}
+{% assign pages_list_travel = pages_list | where: "menutype", "travel"  | sort: 'tripDate' | reverse | slice: 0,5 %}
             <!-- Nav -->
                 <nav id="nav">
                     <ul>

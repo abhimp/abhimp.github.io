@@ -90,7 +90,7 @@ title: Home
 						<h2>Leisure</h2>
 						<!-- <h3>Ph.D. from IIT Kharagpur</h3> -->
 					</header>
-{% assign pages_list_travel = site.wpages | where: "menutype", "travel"  | sort: 'url' | sort: 'menu_order' | reverse %}
+{% assign pages_list_travel = site.wpages | where: "menutype", "travel"  | sort: 'tripDate' | reverse %}
 {% assign node = pages_list_travel[0] %}
 					<!-- <a href="https://photos.app.goo.gl/T7WpW13grTquFaSR2" target="blank" class="feature-image"> -->
 					<a href="{{ site.baseurl }}{{ node.url }}" class="feature-image">

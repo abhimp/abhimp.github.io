@@ -4,7 +4,7 @@ title: Trip to Surul-Raipur Rajabari
 menutitle: Surul-Raipur Rajbari
 menutype: travel
 needPhotoSwipe: true
-menu_order: 100
+tripDate: 2021-11-05
 assetPath: 2021-11-raipur
 ---
 

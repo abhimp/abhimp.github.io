@@ -4,7 +4,7 @@ title: Trip to Ajodhya Pahar
 menutitle: Ajodhya Pahar
 menutype: travel
 needPhotoSwipe: true
-menu_order: 100
+tripDate: 2022-11-05
 assetPath: 2022-11-ajodhya
 ---
 

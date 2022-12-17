@@ -4,7 +4,7 @@ title: Short Trip to Garduara Dam
 menutitle: Garduara Dam
 menutype: travel
 needPhotoSwipe: true
-menu_order: 100
+tripDate: 2022-11-20
 assetPath: 2022-11-garduara
 ---
 

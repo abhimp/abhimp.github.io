@@ -4,7 +4,7 @@ title: Short Trip to Massanjore Dam
 menutitle: Massanjor Dam
 menutype: travel
 needPhotoSwipe: true
-menu_order: 100
+tripDate: 2022-07-16
 assetPath: 2022-07-massanjor
 ---
 

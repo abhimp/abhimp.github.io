@@ -4,7 +4,7 @@ title: East engineering summit
 menutitle: East Summit (Antalya, Turkie)
 menutype: travel
 needPhotoSwipe: true
-menu_order: 100
+tripDate: 2022-09-10
 assetPath: 2022-09-antalya
 ---
 
