@@ -16,10 +16,10 @@ assetPath: 2022-12-ashpond
 
 {% include function_travelimg.html img="Two-01.jpg" alt="BkPTS Ash Pond 2" caption="Panaromic view of the bank of 2nd Pond" %}
 
-[Bakreshwar Thermal Power Station][bktppwbpdcl] ([BkTPP][bktpswiki]) is a coal burning thermal power station under WBPDCL. Like every coal burning power station this one also produce lots of coal asshes. BkTPS dumps in nearby ash ponds. BkTPS have two pond. One of them is full now and a new one have been started recently. This pond are not really tourist spot. However,that doesn't mean one can visit the place. 
+[Bakreshwar Thermal Power Station][bktppwbpdcl] ([BkTPP][bktpswiki]) is a coal-burning thermal power station under WBPDCL. Like every coal-burning power station, this one also produces lots of coal ashes. BkTPS dumps in nearby ash ponds. BkTPS have two ponds. One of them is full now and a new one has been started recently. This pond is not really a tourist attraction. That doesn't mean one can visit the place. 
 
 
-Trip to these ponds were ny sister's long pending wish list. So, we went there with her OLA S1 today. The ponds are pretty close by. Hardly 2 KM apart. At first we went to the old one as it is closer from our place. Here some pics.
+Trips to these ponds were my sister's long pending wish list. So, we went there with her OLA S1 today. The ponds are pretty close by. Hardly 2 KM apart. At first, we went to the old one as it is closer to our place. Here are some pics.
 
 
 {% include function_travelimg.html img="One-01.jpg" alt="BkPTS Ash Pond 1" %}
@@ -27,7 +27,7 @@ Trip to these ponds were ny sister's long pending wish list. So, we went there w
 {% include function_travelimg.html img="One-03.jpg" alt="BkPTS Ash Pond 1" %}
 {% include function_travelimg.html img="One-04.jpg" alt="BkPTS Ash Pond 1" %}
 
-The ash pond 1 the full and no more space available to dump any more ashes here. There are some indutries buys those ash to make different things including bricks. But the ash consumption rate very low compared to dumping rate. Anyway, we moved on to the 2nd pond. It is a place to visit once for sure. Here goes some pics and video.
+The ash pond 1 the full and no more space was available to dump any more ashes here. Some industries buy those ash to make different things including bricks. But the ash consumption rate is very low compared to the dumping rate. Anyway, we moved on to the 2nd pond. It is a place to visit once for sure. Here go some pics and videos.
 
 
 {% include function_travelimg.html img="Two-02.jpg" alt="BkPTS Ash Pond 2" %}
