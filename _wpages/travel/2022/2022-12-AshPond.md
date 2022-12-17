@@ -33,13 +33,19 @@ The ash pond 1 the full and no more space was available to dump any more ashes h
 {% include function_travelimg.html img="Two-02.jpg" alt="BkPTS Ash Pond 2" %}
 {% include function_travelimg.html img="Two-03.jpg" alt="BkPTS Ash Pond 2" %}
 {% include function_travelimg.html img="Two-04.jpg" alt="BkPTS Ash Pond 2" %}
-{% include function_travelimg.html img="Two-05.jpg" alt="BkPTS Ash Pond 2" %}
+{% include function_travelimg.html img="Two-05.jpg" alt="BkPTS Ash Pond 2" caption="My sister wanted to touch the water" %}
 {% include function_travelimg.html img="Two-06.jpg" alt="BkPTS Ash Pond 2" %}
 {% include function_travelimg.html img="Two-07.jpg" alt="BkPTS Ash Pond 2" %}
-{% include function_travelimg.html img="Two-08.jpg" alt="BkPTS Ash Pond 2" %}
+{% include function_travelimg.html img="Two-08.jpg" alt="BkPTS Ash Pond 2" caption="She wanted to touch it again." %}
+
+
 
 
 {% include function_travelyt.html yt="Ifpg3inqoqU " %}
+
+
+
+Most of the pond looks dry except on the far side. Lots of water accumulated there and people are gathering there. Don't know if they are going to bathe or not. BkTPS authorities provided lots of warnings about the water. The water is not safe as it might contain arsenic or other harmful particles. By the way, water is being reused by the thermal power plant. There is a small water treatment plant beside the pond.
 
 
 [bktppwbpdcl]: https://wbpdcl.co.in/bakreshwar-thermal-power-plant
