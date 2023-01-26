@@ -2,7 +2,7 @@ import urllib.request
 import json
 import os
 
-years = [2021, 2022]
+years = [2021, 2022, 2023]
 
 imgData = {}
 
