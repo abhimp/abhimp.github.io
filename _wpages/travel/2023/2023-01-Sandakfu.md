@@ -6,6 +6,7 @@ menutype: travel
 needPhotoSwipe: true
 tripDate: 2023-01-28
 assetPath: 2023-01-Sandakfu
+plink: 2023-01-Sandakfu
 ---
 
 ## Sandakfu Trek
