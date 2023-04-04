@@ -1,0 +1,265 @@
+---
+layout: system
+title: Music Player
+menutype: system
+menu_order: 50
+---
+<style>
+	h1 {
+		margin-top: 0;
+		text-align: center;
+	}
+	
+	#player {
+		margin: 0 auto;
+		max-width: 500px;
+		text-align: center;
+	}
+	
+	#playlist {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+	}
+	
+	#playlist li {
+		padding: 8px;
+		cursor: pointer;
+		background-color: #eee;
+	}
+	
+	#playlist li:hover {
+		background-color: #ccc;
+	}
+	
+	#playlist .selected {
+		background-color: #008CBA;
+		color: #fff;
+	}
+	
+	#controls {
+		margin-top: 16px;
+	}
+	
+	#controls button {
+		background-color: #008CBA;
+		border: none;
+		color: #fff;
+		padding: 8px;
+		cursor: pointer;
+		margin: 0 4px;
+	}
+	
+	#controls button:hover {
+		background-color: #006080;
+	}
+	
+	#controls button:active {
+		background-color: #004d66;
+	}
+	
+	#controls button[disabled] {
+		background-color: #aaa;
+		cursor: not-allowed;
+	}
+	
+	#volume {
+		margin-top: 16px;
+		text-align: center;
+	}
+	
+	#volume input {
+		width: 50%;
+	}
+	
+	#seek-bar {
+		margin-top: 16px;
+		width: 100%;
+	}
+	
+	#player input {
+		-moz-appearance: auto;
+		-webkit-appearance: auto;
+		-ms-appearance: auto;
+		appearance: auto;
+	}
+	#player #current-time {
+		float: left;
+	}
+	#player #duration {
+		float: right;
+	}
+	#player #cd-clear {
+		clear: both;
+	}
+</style>
+<h1>Music Player</h1>
+<div id="player">
+	<ul id="playlist"></ul>
+	<div id="controls">
+		<button id="add-file-btn">Add File</button>
+		<button id="add-directory-btn">Add Directory</button>
+		<button id="remove-btn" disabled>Remove</button>
+		<button id="play-btn" disabled>Play</button>
+		<button id="pause-btn" disabled>Pause</button>
+		<button id="stop-btn" disabled>Stop</button>
+	</div>
+	<div id="volume">
+		<input id="volume-slider" type="range" min="0" max="100" value="50">
+	</div>
+	<div>
+		<input type="range" id="seek-bar" value="0" min="0" max="100" step="0.01">
+		<div id="current-time">0:00</div>
+		<div id="duration">0:00</div>
+		<div id="cd-clear">&nbsp;&nbsp;</div>
+		<!--<input id="seek-bar" type="range" min="0" max="100" value="0"> -->
+	</div>
+</div>
+<script>
+	var songList = [];
+	var currentSong = -1;
+	var audio = new Audio();
+	var playlist = document.getElementById("playlist");
+	var addFileBtn = document.getElementById("add-file-btn");
+	var addDirectoryBtn = document.getElementById("add-directory-btn");
+	var removeBtn = document.getElementById("remove-btn");
+	var playBtn = document.getElementById("play-btn");
+	var pauseBtn = document.getElementById("pause-btn");
+	var stopBtn = document.getElementById("stop-btn");
+	var volumeSlider = document.getElementById("volume-slider");
+	var seekBar = document.getElementById("seek-bar");
+	var currentTime = document.getElementById("current-time");
+	var duration = document.getElementById("duration");
+	
+	addFileBtn.addEventListener("click", addFile);
+	addDirectoryBtn.addEventListener("click", addDirectory);
+	removeBtn.addEventListener("click", removeSong);
+	
+	function addFile() {
+		var input = document.createElement("input");
+		input.type = "file";
+		input.multiple = true;
+		input.accept = "audio/*";
+		input.addEventListener("change", function() {
+			for (var i = 0; i < this.files.length; i++) {
+				addSong(this.files[i]);
+			}
+		});
+		input.click();
+	}
+	function addDirectory() {
+		var input = document.createElement("input");
+		input.type = "file";
+		input.webkitdirectory = true;
+		input.addEventListener("change", function() {
+			var files = this.files;
+			for (var i = 0; i < files.length; i++) {
+				addSong(files[i]);
+			}
+		});
+		input.click();
+	}
+	
+	function addSong(file) {
+		if (file.type.startsWith("audio/")) {
+			var li = document.createElement("li");
+			li.innerHTML = file.name;
+			li.addEventListener("click", function() {
+				selectSong(songList.indexOf(file));
+			});
+			playlist.appendChild(li);
+			songList.push(file);
+			if (songList.length == 1) {
+				selectSong(0);
+			}
+		}
+	}
+	
+	function removeSong() {
+		if (currentSong >= 0) {
+			playlist.removeChild(playlist.children[currentSong]);
+			songList.splice(currentSong, 1);
+			audio.pause();
+			audio.currentTime = 0;
+			currentSong = -1;
+			playBtn.disabled = true;
+			pauseBtn.disabled = true;
+			stopBtn.disabled = true;
+			removeBtn.disabled = true;
+			seekBar.value = 0;
+		}
+	}
+	
+	function selectSong(index) {
+		if (index != currentSong) {
+			if (currentSong >= 0) {
+				playlist.children[currentSong].classList.remove("selected");
+			}
+			currentSong = index;
+			audio.src = URL.createObjectURL(songList[index]);
+			audio.load();
+			playBtn.disabled = false;
+			pauseBtn.disabled = true;
+			stopBtn.disabled = true;
+			removeBtn.disabled = false;
+			playlist.children[currentSong].classList.add("selected");
+		}
+	}
+	
+	function playSong() {
+		audio.play();
+		playBtn.disabled = true;
+		pauseBtn.disabled = false;
+		stopBtn.disabled = false;
+	}
+	
+	function pauseSong() {
+		audio.pause();
+		playBtn.disabled = false;
+		pauseBtn.disabled = true;
+		stopBtn.disabled = false;
+	}
+	
+	function stopSong() {
+		audio.pause();
+		audio.currentTime = 0;
+		playBtn.disabled = false;
+		pauseBtn.disabled = true;
+		stopBtn.disabled = true;
+		seekBar.value = 0;
+		currentTime.innerHTML = "0:0";
+	}
+	
+	function setVolume() {
+		audio.volume = volumeSlider.value / 100;
+	}
+	
+	function updateSeekBar() {
+		seekBar.value = audio.currentTime / audio.duration * 100;
+		currentTime.innerHTML = formatTime(audio.currentTime);
+		duration.innerHTML = formatTime(audio.duration);
+	}
+	
+	function setSeekBar() {
+		audio.currentTime = seekBar.value / 100 * audio.duration;
+		currentTime.innerHTML = formatTime(audio.currentTime);
+		duration.innerHTML = formatTime(audio.duration);
+	}
+	
+	function formatTime(seconds) {
+		var minutes = Math.floor(seconds / 60);
+		seconds = Math.floor(seconds % 60);
+		if (seconds < 10) {
+			seconds = "0" + seconds;
+		}
+		return minutes + ":" + seconds;
+	}
+	
+	audio.addEventListener("timeupdate", updateSeekBar);
+	seekBar.addEventListener("input", setSeekBar);
+	volumeSlider.addEventListener("input", setVolume);
+	playBtn.addEventListener("click", playSong);
+	pauseBtn.addEventListener("click", pauseSong);
+	stopBtn.addEventListener("click", stopSong);
+</script>
