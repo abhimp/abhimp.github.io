@@ -256,6 +256,15 @@ menu_order: 50
 		return minutes + ":" + seconds;
 	}
 	
+	function confirmClose(e) {
+		if (songList.length > 0) {
+			var confirmationMessage = "You have unsaved changes. Are you sure you want to leave?";
+			(e || window.event).returnValue = confirmationMessage;
+			return confirmationMessage;
+		}
+	}
+
+	window.addEventListener("beforeunload", confirmClose);
 	audio.addEventListener("timeupdate", updateSeekBar);
 	seekBar.addEventListener("input", setSeekBar);
 	volumeSlider.addEventListener("input", setVolume);
