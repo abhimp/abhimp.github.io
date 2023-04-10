@@ -10,18 +10,11 @@
                                 {% if node.menutype == "travel" %}
                                   {% assign curYear = node.path | split: "/" | slice: -2,1 %}
                                   {% if curYear != lastYear %}
-                                    {% if lastYear != "" %}
-                            </ul>
-                          </li>
-                                    {% endif %}
-                          <li><h3>{{ curYear }}</h3>
-                              <ul>
+                          <li><h3>{{ curYear }}</h3></li>
                                     {% assign lastYear = curYear %}
                                   {% endif %}
-                                <li><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+                          <li style="padding-left: 1em;"><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
                                 {% endif %}
                               {% endif %}
                             {% endfor %}
-                              </ul>
-                            </li>
                         </ul>
