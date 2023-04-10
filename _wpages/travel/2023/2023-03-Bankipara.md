@@ -37,3 +37,4 @@ It is better to check out photos than write them.
 {% include function_travelimg.html img="Valley-01.jpg" alt="The valley" %}
 {% include function_travelimg.html img="Valley-02.jpg" alt="The valley" %}
 {% include function_travelimg.html img="Valley-03.jpg" alt="The valley" %}
+
