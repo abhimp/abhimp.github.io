@@ -24,7 +24,7 @@ We started to reach NJP via train around 7:30 in the Morning of 28th January. It
 
 Maneybhanjan is a place to start trekking among many others. First thing was to find a place to stay there for the night and find a guide. It was pretty easy as there there are many homestays and hotels and it was off-season. We found a reasonable homestay Druk Homestay for Rs. 1k per head for food and lodging. They also found us a guide. It was 11:30 am. So, freshen up a bit and have our lunch by 12:30 pm.
 
-We had plenty of time. So we started roaming around and site seeing by walking. It is a small but complete town.
+We had plenty of time. So we started roaming around and sight seeing by walking. It is a small but complete town.
 
 {% include function_travelimg.html img="ManeyBhanjan-03.jpg" alt="Manebhanjan" %}
 {% include function_travelimg.html img="ManeyBhanjan-01.jpg" alt="Manebhanjan" %}
