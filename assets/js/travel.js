@@ -183,3 +183,7 @@ function getContainer() {
     document.body.appendChild(pswpContainer);
     return pswpContainer;
 }
+
+function resizeImages() {
+    var maxWidth = $("section p:first").width()
+}
