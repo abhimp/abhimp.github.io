@@ -32,6 +32,7 @@
                                 {% endif %}
                               {% endif %}
                             {% endfor %}
+                            <li><a class="{% if page.url == "/travel/travel" %} current{% endif %}" href="{{ site.baseurl }}/travel/travel">{% if node.menutitle != null %}{{ node.menutitle }}{% else %}More{% endif %}</a></li>
                           </ul>
                         </li>
                         <li>
