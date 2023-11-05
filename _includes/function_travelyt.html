@@ -1,5 +1,5 @@
 <br />
 <div class="travel yt-container">
-  <iframe class="travel yt-responsive-iframe" src="https://www.youtube.com/embed/{{ include.yt }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="travel yt-responsive-iframe" src="https://www.youtube.com/embed/{{ include.yt }}?loop={{ include.loop | default 0 }}&autoplay={{ include.autoplay | default 0 }}&controls={{ include.controls | default 1 }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <br />
