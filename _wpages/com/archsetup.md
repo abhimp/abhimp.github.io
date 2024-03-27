@@ -34,7 +34,7 @@ Here we assume that linux is mounted at the /mnt
 1. Secure boot
 
     ``# grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --modules="tpm"`` <br>
-    Now follow (https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Implementing_Secure_Boot)
+    Now follow <https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Implementing_Secure_Boot>
 
 1. Add user and make it admin
 
