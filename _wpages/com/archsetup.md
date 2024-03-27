@@ -15,7 +15,7 @@ Follow the exact commands provided at the archwiki [Installation guide](https://
 1. First need to install the required packages.
 Here we assume that linux is mounted at the /mnt
 
-    ``# pacstrap /mnt base base-devel linux linux-firmware vim man-pages networkmanager grub efibootmgr``
+    ``# pacstrap /mnt base base-devel linux linux-firmware vim man-pages networkmanager grub efibootmgr sbctl``
 
 
 1. Follow arch guide to install and setup fstab and chroot to mnt
@@ -30,6 +30,11 @@ Here we assume that linux is mounted at the /mnt
     ``# systemctl enable netowrkmanager`` <br>
     ``# systemctl enable NetworkManager`` <br>
     ``# systemctl start NetworkManager`` <br>
+
+1. Secure boot
+
+    ``# grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --modules="tpm"`` <br>
+    Now follow (https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Implementing_Secure_Boot)
 
 1. Add user and make it admin
 
