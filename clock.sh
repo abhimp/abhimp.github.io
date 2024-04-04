@@ -1,4 +1,7 @@
+#!/usr/bin/env bash
 
+# Abhijit Mondal
+# am@abhijitmondal.in
 
 x1=" .---.     .  ---.  ---. .   . .---  .---   ---. .---. .---. .---."
 x2=" |   |     |     |     | |   | |     |         | |   | |   | |   |"
