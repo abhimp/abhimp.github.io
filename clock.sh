@@ -8,7 +8,7 @@ x5=" '---'     ' '---   ---'     '  ---' \`---'     ' '---'  ---' '---'"
 
 dot="  o o "
 
-boxSize=47
+boxSize=45
 
 
 clock() {
@@ -44,7 +44,7 @@ clock() {
         for (( i=0; i<${#tm}; i++)); do
             font="${tm:i:1}"
             if [[ "$font" == ":" ]]; then
-                printf "%s" " ${dot:j:1} "
+                printf "%s" " ${dot:j:1}"
             else
                 start=$((font * 6))
 #                 echo $font $start
