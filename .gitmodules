@@ -1,3 +1,12 @@
-[submodule "propImages"]
-	path = propImages
-	url = https://gitlab.com/abhimp/travelimages
+[submodule "travelImages/2021"]
+	path = travelImages/2021
+	url = ssh://git@gitlab.com:/abhimp/trimg2021
+[submodule "travelImages/2022"]
+	path = travelImages/2022
+	url = ssh://git@gitlab.com:/abhimp/trimg2022
+[submodule "travelImages/2023"]
+	path = travelImages/2023
+	url = ssh://git@gitlab.com:/abhimp/trimg2023
+[submodule "travelImages/2024"]
+	path = travelImages/2024
+	url = ssh://git@gitlab.com:/abhimp/trimg2024
