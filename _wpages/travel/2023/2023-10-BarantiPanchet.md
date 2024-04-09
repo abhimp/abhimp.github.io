@@ -3,7 +3,7 @@ layout: travel
 title: Stroll by Baranti and Panchet
 menutitle: Baranti & Panchet
 menutype: travel
-needPhotoSwipe: trueNature's Serenity
+needPhotoSwipe: true
 tripDate: 2023-10-29
 assetPath: 2023-10-BarantiPanchet
 ---
