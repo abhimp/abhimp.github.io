@@ -9,7 +9,7 @@ assetPath: 2023-10-BarantiPanchet
 ---
 
 ## Baranti and Punchet
-29-10-2023
+29-Oct-2023
 
 ---
 

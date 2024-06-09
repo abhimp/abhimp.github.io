@@ -1,6 +1,6 @@
 ---
 layout: travel
-title: Toy Train Ride in Darjeeling, Paragliding at and Rafting at 
+title: Toy Train Ride in Darjeeling, Paragliding at and Rafting at
 menutitle: Toy Train, Paragliding, Rafting
 menutype: travel
 needPhotoSwipe: true
@@ -9,7 +9,7 @@ assetPath: 2023-02-Darjeeling
 ---
 
 ## Darjeeling
-02-02-2023 -- 04-03-2023
+02-Feb-2023 -- 04-Feb-2023
 
 ---
 
@@ -26,7 +26,7 @@ The Joy Ride started at the Darjeeling Station. I can not just explain how excit
 It was amazing watch the engine hauling the train.
 {% include function_travelyt.html yt="JvQO5SCCOaQ" %}
 
-The train went run till the [Batasia Loop][batasia]. Then it stopped there for 15 minute. Other tourist were standing there to take a look of the train and take photos of it and with it. I took some photos and videos as well. 
+The train went run till the [Batasia Loop][batasia]. Then it stopped there for 15 minute. Other tourist were standing there to take a look of the train and take photos of it and with it. I took some photos and videos as well.
 
 {% include function_travelimg.html img="JoyRide-01.jpg" alt="The train standing but operators are working continuously" %}
 {% include function_travelimg.html img="JoyRide-02.jpg" alt="The steam train and the disel train standing side by side" %}

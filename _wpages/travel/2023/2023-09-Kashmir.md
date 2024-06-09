@@ -10,7 +10,7 @@ plink: 2023-09-Kashmir
 ---
 
 ## Kashmir
-29-09-2023 -- 06-10-2023
+29-Sep-2023 -- 06-Oct-2023
 
 
 {% include function_travelimg.html img="Srinagar-01.jpg" alt="Sunset at Dal Lake" %}

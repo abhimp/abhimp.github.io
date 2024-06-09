@@ -9,7 +9,7 @@ assetPath: 2023-03-Bankipara
 ---
 
 ## Bankipara
-12-03-2023
+12-Mar-2023
 
 
 {% include function_travelimg.html img="Palash-01.jpg" alt="Fully bloomed tree" %}
