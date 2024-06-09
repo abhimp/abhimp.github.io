@@ -2,7 +2,6 @@ import urllib.request
 import json
 import os
 
-years = [2021, 2022, 2023]
 years = os.listdir("_wpages/travel/")
 
 imgData = {}

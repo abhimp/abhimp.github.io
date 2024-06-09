@@ -16,7 +16,7 @@ assetPath: 2024-04-Topchanchi
 
 {% include function_travelimg.html img="Banner-01.jpg" alt="The fanastatic Topchanchi lake" %}
 
-The [Topchanchi Lake](topchanchi) is an old reservoir situated near Dhanbad city. The reservoir was initiated in the year 1926. It is a large water reservoir with breathtaking views.
+The [Topchanchi Lake](topchanchi) is an old reservoir situated near the [Dhanbad][dhanbad] city. The reservoir was initiated in the year 1926. It is a large water reservoir with breathtaking views.
 
 
 {% include function_travelimg.html img="S-01.jpg" alt="The plate which says work started on 1926" caption="The plate" %}
@@ -40,3 +40,4 @@ There is park where people can take rest and do other stuff. Beside the park, th
 
 
 [topchanchi]: https://dhanbad.nic.in/tourist-place/topchanchi-lake/
+[dhanbad]: https://en.wikipedia.org/wiki/Dhanbad
