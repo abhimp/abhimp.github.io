@@ -8,7 +8,7 @@ tripDate: 2024-03-17
 assetPath: 2024-03-JoyChandi
 ---
 
-## Topchanchi
+## Joychandi Pahar Through FlowerFire
 17-Mar-2024
 
 ---
