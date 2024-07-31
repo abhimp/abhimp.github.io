@@ -16,20 +16,20 @@ assetPath: 2024-03-JoyChandi
 
 {% include function_travelimg.html img="Banner-01.jpg" alt="The Majestic" %}
 
-It is trip to [Joychandi pahar][joychandi] while exploring the beauty of spring in the [Purulia][purulia].
+It is a trip to [Joychandi Pahar][joychandi] while exploring the beauty of spring in [Purulia][purulia].
 
-On the we start from the Durgapur station towards Koro Pahar. However, it turns out to be a small bump in the landscape and not much interesting. With a huge disappointment, we move towards Joychandi pahar. However, map told us that there is a small dam name [Gangdua Dam][gangduadam] (check photos for GPS location). It is really small dam. I am sure of the purpose. However, it is a nice place to walk sometime. Here goes some photos.
+On the way, we start from Durgapur station towards Koro Pahar. However, it turns out to be a small bump in the landscape and not very interesting. With huge disappointment, we move towards Joychandi Pahar. The map told us that there is a small dam named [Gangdua Dam][gangduadam] (check photos for GPS location). It is a really small dam. I am unsure of its purpose. However, it is a nice place for a walk. Here are some photos.
 
 {% include function_travelimg.html img="Gangdua-01.jpg" alt="The Gangdua Dam" %}
 {% include function_travelimg.html img="Gangdua-02.jpg" alt="The Gangdua Dam" %}
 {% include function_travelimg.html img="Gangdua-03.jpg" alt="The Gangdua Dam" %}
 
-After Gangdua we head for the Joychandi pahar without any further detour. However, we did enjoy the Flower Fire throughout the journey. It was awesome.
+After Gangdua, we head for Joychandi Pahar without any further detours. However, we did enjoy the Flower Fire throughout the journey. It was awesome.
 
 {% include function_travelimg.html img="FlowerFire-01.jpg" alt="FlowerFire" %}
 {% include function_travelimg.html img="FlowerFire-02.jpg" alt="FlowerFire" %}
 
-Finally we reached Joychandi pahar. While there are three hills, we climbed only one and stayed there as long as we could. It was a very small trek. We could see landscape all around us with such a clarity.
+Finally, we reached Joychandi Pahar. While there are three hills, we climbed only one and stayed there as long as we could. It was a very small trek. We could see the landscape all around us with such clarity.
 
 {% include function_travelimg.html img="Joychandi-01.jpg" alt="The Joychandi Pahar" %}
 {% include function_travelimg.html img="Joychandi-02.jpg" alt="The Joychandi Pahar" %}
