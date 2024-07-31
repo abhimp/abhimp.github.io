@@ -98,7 +98,7 @@ Trek to Sandakfu was short but very stiff. We had to climb almost 400m in 6KM. T
 
 We reached Sandakfu around 2:30 PM. Sandakfu is pretty empty. It has two places to stay, one is GTA accommodation on the Indian soul and Sunrise Hotel on the Nepal side. A road constructed by the Indian Govt. is the border between the two countries. GTA accommodation does not have electricity or an Internet connection. However, the sunrise hotel does have both. Our guide had the plan to go down another kilometer. However, we find the Hotel Sunrise better to stay. We got a very good room with a view of [Kangchenjunga][kanchen] pick. This room also had a view of Mount Everest, however, it was blocked by a tree.
 
-We settled in the room around 4:30 am when sunset started. Kangchenjunga was looking too pretty at this time. While we were planning to watch the sunset from the room, our guide told us about the nearby hilltop viewpoint. So we rushed there. It was almost dark. However, it had a 360-degree view of the surroundings.
+We settled in the room around 4:30 pm when sunset started. Kangchenjunga was looking too pretty at this time. While we were planning to watch the sunset from the room, our guide told us about the nearby hilltop viewpoint. So we rushed there. It was almost dark. However, it had a 360-degree view of the surroundings.
 
 The next morning we watch the sunrise from the roof of our hotel and then went to the hill again. This time we watch both mount Everest and mount Kangchenjunga. Here go some images.
 
