@@ -4,7 +4,7 @@
                         </header>
                         <ul class="link-list">
                           {% assign lastYear = "" %}
-{% assign pages_list_travel = site.wpages | where: "menutype", "travel"  | sort: 'tripDate' | reverse %}
+{% assign pages_list_travel = site.wpages | where: "menutype", "travel" | where: "draft", false | sort: 'tripDate' | reverse %}
                             {% for node in pages_list_travel %}
                               {% if node.title != null %}
                                 {% if node.menutype == "travel" %}
