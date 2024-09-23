@@ -14,7 +14,7 @@ const pswpContainer = getContainer();
 
 function getFullscreenPromise() {
     // Always resolve promise,
-    // as wa want to open lightbox 
+    // as wa want to open lightbox
     // (no matter if fullscreen is supported or not)
     return new Promise((resolve) => {
         if (!fullscreenAPI || fullscreenAPI.isFullscreen()) {
@@ -22,7 +22,7 @@ function getFullscreenPromise() {
             resolve();
             return;
         }
-        
+
         document.addEventListener(fullscreenAPI.change, (event) => {
             pswpContainer.style.display = 'block';
             // delay to make sure that browser fullscreen animation is finished
@@ -30,7 +30,7 @@ function getFullscreenPromise() {
                 resolve();
             }, 300);
         }, { once: true });
-        
+
         fullscreenAPI.request(pswpContainer);
     });
 }
@@ -66,8 +66,8 @@ $(document).ready(function(){
         if(origimg)
         {
             var imgData = {
-                src: origimg, 
-                height: parseInt($(ele).attr("data-origheight")), 
+                src: origimg,
+                height: parseInt($(ele).attr("data-origheight")),
                 width: parseInt($(ele).attr("data-origwidth")),
                 alt: $(ele).attr("alt")
             }
@@ -133,7 +133,7 @@ function getFullscreenAPI() {
     let elementFS;
     let changeEvent;
     let errorEvent;
-    
+
     if (document.documentElement.requestFullscreen) {
         enterFS = 'requestFullscreen';
         exitFS = 'exitFullscreen';
@@ -147,7 +147,7 @@ function getFullscreenAPI() {
         changeEvent = 'webkitfullscreenchange';
         errorEvent = 'webkitfullscreenerror';
     }
-    
+
     if (enterFS) {
         api = {
             request: function (el) {
@@ -157,20 +157,20 @@ function getFullscreenAPI() {
                     el[enterFS]();
                 }
             },
-            
+
             exit: function () {
                 return document[exitFS]();
             },
-            
+
             isFullscreen: function () {
                 return document[elementFS];
             },
-            
+
             change: changeEvent,
             error: errorEvent
         };
     }
-    
+
     return api;
 };
 
