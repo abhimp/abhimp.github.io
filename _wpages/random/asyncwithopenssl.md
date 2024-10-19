@@ -18,3 +18,5 @@ Also OpenSSL support different kind of IOs and very easy adapt a new one if it d
 Non-blocking IO is a way to working to multiple IOs from a single thread. Here, IO operations wont block if it can perform the operation rather return with appropriate notification. So, program can perform opertaion in loop. However this method causes wasting CPU spining. So, the defacto standard is to use some method to get notification about the possibily of available operation on IOs. The implementation of such tool is platform dependent and beyond the scope of this documentation. However, such tools works on the system IOs not on the application level IOs.
 
 So, such notification mechanism are not capable of polling OpenSSL. So, to use OpenSSL, with non-blocking IOs, we have to use the notification mechanism on Non-Blocking IOs and translate them corresponding SSL connection.
+
+Lets see how can we read data from using non-blocking IOs.
