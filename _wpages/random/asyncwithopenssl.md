@@ -70,4 +70,7 @@ int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
 }
 ```
 
-This solution above looks ok. It also works 
+This solution above looks ok. It also works fine most of the cases. However there is a caveate.
+
+#### The caveat
+The
