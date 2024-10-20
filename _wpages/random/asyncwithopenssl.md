@@ -75,5 +75,7 @@ This solution above looks ok. It also works fine most of the cases. However ther
 #### The caveat
 Lets assume a scenerio. The sender sends 2048bytes over the SSL connection, then it expects some output from the other end. The receiver side receives only 1048bytes at a time.
 
-In this particular scenerio.
+In this particular scenerio, receiver side may not recieve the entire msg and may not reply ever.
+
+SSL send and receive messages in chunks. It means, while sending data, it encrypts a chunk of data and send the encrypted data to otherside. The receiver on the other hand, 
 
