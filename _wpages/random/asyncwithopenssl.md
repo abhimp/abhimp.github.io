@@ -19,7 +19,7 @@ Non-blocking IO is a way to working to multiple IOs from a single thread. Here, 
 
 So, such notification mechanism are not capable of polling OpenSSL. So, to use OpenSSL, with non-blocking IOs, we have to use the notification mechanism on Non-Blocking IOs and translate them corresponding SSL connection.
 
-Lets see how can we read data from using non-blocking IOs.
+Lets see how can we read data from SSL connection using non-blocking IOs.
 
 ```c
 #include <openssl/ssl.h>
@@ -69,3 +69,5 @@ int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
     }
 }
 ```
+
+This solution above looks ok. It also works 
