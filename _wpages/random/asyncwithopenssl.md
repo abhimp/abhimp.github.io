@@ -77,5 +77,5 @@ Lets assume a scenerio. The sender sends 2048bytes over the SSL connection, then
 
 In this particular scenerio, receiver side may not recieve the entire msg and may not reply ever.
 
-SSL send and receive messages in chunks. It means, while sending data, it encrypts a chunk of data and send the encrypted data to otherside. The receiver on the other hand, 
+SSL send and receive messages in chunks. It means, while sending data, it encrypts a chunk of data and send the encrypted data to otherside. The receiver on the other hand, it process the encrypted data only when it receives entire chunks. It might needs to read multiple time from the IO. Once, it process a chunk, return the amount of data requested by the application, and keep the rest in the memory.
 
