@@ -73,5 +73,7 @@ int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
 This solution above looks ok. It also works fine most of the cases. However there is a caveate.
 
 #### The caveat
-Lets assume a scenerio. The sender sends 2048bytes over the SSL connection. The receiver side receives only 1048bytes at a time.
+Lets assume a scenerio. The sender sends 2048bytes over the SSL connection, then it expects some output from the other end. The receiver side receives only 1048bytes at a time.
+
+In this particular scenerio.
 
