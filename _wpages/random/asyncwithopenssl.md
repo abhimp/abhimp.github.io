@@ -31,7 +31,6 @@ Lets see how can we read data from using non-blocking IOs.
 int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
     int ret;
     fd_set readfds;
-    struct timeval timeout;
 
     // Set the file descriptor to non-blocking
     int flags = fcntl(fd, F_GETFL, 0);
@@ -41,19 +40,11 @@ int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
         FD_ZERO(&readfds);
         FD_SET(fd, &readfds);
 
-        // Set a timeout value (optional)
-        timeout.tv_sec = 5;  // 5 seconds timeout
-        timeout.tv_usec = 0;
-
         // Wait for the socket to be readable
-        ret = select(fd + 1, &readfds, NULL, NULL, &timeout);
+        ret = select(fd + 1, &readfds, NULL, NULL, NULL);
 
         if (ret < 0) {
             perror("select");
-            return -1;
-        } else if (ret == 0) {
-            // Timeout reached, no data available
-            printf("Timeout while reading SSL\n");
             return -1;
         } else if (FD_ISSET(fd, &readfds)) {
             // Try to read from the SSL connection
