@@ -73,4 +73,10 @@ int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
 This solution above looks ok. It also works fine most of the cases. However there is a caveate.
 
 #### The caveat
-The
+Lets assume a scenerio. The sender sends 2048bytes over the SSL connection, then it expects some output from the other end. The receiver side receives only 1048bytes at a time.
+
+In this particular scenerio, receiver side may not recieve the entire msg and may not reply ever.
+
+SSL send and receive messages in chunks. It means, while sending data, it encrypts a chunk of data and send the encrypted data to otherside. The receiver on the other hand, it process the encrypted data only when it receives entire chunks. It might needs to read multiple time from the IO. Once, it process a chunk, return the amount of data requested by the application, and keep the rest in the memory.
+
+In our scenerios, we requested for 1024 bytes, so, OpenSSL would keep another 1024 bytes in the memory. As there is no more data in the system IO, `epoll` wont return any more event. So, the application would hang forever.
