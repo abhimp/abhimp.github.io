@@ -21,7 +21,7 @@ So, such notification mechanism are not capable of polling OpenSSL. So, to use O
 
 Lets see how can we read data from using non-blocking IOs.
 
-```
+```c
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <unistd.h>
