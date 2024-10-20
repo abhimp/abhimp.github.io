@@ -20,3 +20,61 @@ Non-blocking IO is a way to working to multiple IOs from a single thread. Here, 
 So, such notification mechanism are not capable of polling OpenSSL. So, to use OpenSSL, with non-blocking IOs, we have to use the notification mechanism on Non-Blocking IOs and translate them corresponding SSL connection.
 
 Lets see how can we read data from using non-blocking IOs.
+
+```
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/select.h>
+
+int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
+    int ret;
+    fd_set readfds;
+    struct timeval timeout;
+
+    // Set the file descriptor to non-blocking
+    int flags = fcntl(fd, F_GETFL, 0);
+    fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+
+    while (1) {
+        FD_ZERO(&readfds);
+        FD_SET(fd, &readfds);
+
+        // Set a timeout value (optional)
+        timeout.tv_sec = 5;  // 5 seconds timeout
+        timeout.tv_usec = 0;
+
+        // Wait for the socket to be readable
+        ret = select(fd + 1, &readfds, NULL, NULL, &timeout);
+
+        if (ret < 0) {
+            perror("select");
+            return -1;
+        } else if (ret == 0) {
+            // Timeout reached, no data available
+            printf("Timeout while reading SSL\n");
+            return -1;
+        } else if (FD_ISSET(fd, &readfds)) {
+            // Try to read from the SSL connection
+            ret = SSL_read(ssl, buf, buf_size);
+            
+            if (ret > 0) {
+                // Successfully read data
+                printf("Read %d bytes from SSL connection\n", ret);
+                return ret;
+            } else {
+                int ssl_error = SSL_get_error(ssl, ret);
+                if (ssl_error == SSL_ERROR_WANT_READ || ssl_error == SSL_ERROR_WANT_WRITE) {
+                    // SSL wants to retry the read or write operation
+                    continue;
+                } else {
+                    // Some other error occurred
+                    fprintf(stderr, "SSL_read error: %d\n", ssl_error);
+                    return -1;
+                }
+            }
+        }
+    }
+}
+```
