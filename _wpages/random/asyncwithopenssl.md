@@ -49,7 +49,7 @@ int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
         } else if (FD_ISSET(fd, &readfds)) {
             // Try to read from the SSL connection
             ret = SSL_read(ssl, buf, buf_size);
-            
+
             if (ret > 0) {
                 // Successfully read data
                 printf("Read %d bytes from SSL connection\n", ret);
@@ -80,3 +80,10 @@ In this particular scenerio, receiver side may not recieve the entire msg and ma
 SSL send and receive messages in chunks. It means, while sending data, it encrypts a chunk of data and send the encrypted data to otherside. The receiver on the other hand, it process the encrypted data only when it receives entire chunks. It might needs to read multiple time from the IO. Once, it process a chunk, return the amount of data requested by the application, and keep the rest in the memory.
 
 In our scenerios, we requested for 1024 bytes, so, OpenSSL would keep another 1024 bytes in the memory. As there is no more data in the system IO, `epoll` wont return any more event. So, the application would hang forever.
+
+**Solutions**
+The straight forward solution is to read the ssl as long as it doesn't give any error. However, it might strave other connections.
+
+So, the best solution is to make a mechanism to create a fake read call.
+
+### OpenSSL error propagation

@@ -13,7 +13,7 @@
                           <li><h3>{{ curYear }}</h3></li>
                                     {% assign lastYear = curYear %}
                                   {% endif %}
-                          <li style="padding-left: 1em;"><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
+                          <li style="padding-left: 1.5em; text-indent: -0.5em;"><a class="{% if page.url == node.url %} current{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></li>
                                 {% endif %}
                               {% endif %}
                             {% endfor %}
