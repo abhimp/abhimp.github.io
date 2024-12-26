@@ -17,7 +17,7 @@ draft: false
 
 {% include function_travelimg.html img="Banner-01.jpg" alt="The Kairabani Dam" %}
 
-The [Kairabani Dam] is a water reservoir that forms part of the [Kairabani Reservoir Scheme] under the [Water Resources Department][wrdjh] of the [Government of Jharkhand, India][jh]. It is an irrigation reservoir featuring a single canal and a spillway gate, serving the area by providing water for crop cultivation.
+The [Kairabani Dam] is a water reservoir that forms part of the Kairabani Reservoir Scheme under the [Water Resources Department][wrdjh] of the [Government of Jharkhand, India][jh]. It is an irrigation reservoir featuring a single canal and a spillway gate, serving the area by providing water for crop cultivation.
 
 I particularly enjoy these types of dams, primarily because of their locations. The [Kairabani Dam] and similar dams are situated at least 2 kilometers away from any paved roads. These areas are typically surrounded by hills and are secluded from the noisy modern world. By default, any water body surrounded by hills has a stunning natural beauty, and the [Kairabani Dam] is no exception. Being there is always a pleasure, and here are some of those delightful moments captured in the form of photos.
 
