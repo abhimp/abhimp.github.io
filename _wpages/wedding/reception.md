@@ -1,6 +1,7 @@
 ---
-layout: onecols
-title: Wedding
+layout: wedding
+title: Reception
+menutype: wedding
 ---
 
 <!-- <embed src="ReceptionMenu.pdf" width="100%" height="100%" type="application/pdf" /> -->
@@ -16,6 +17,7 @@ title: Wedding
         height: auto;
     }
 </style>
+
 <div class="wedingreceptionimgcontainer">
     <img src="ReceptionMenu-f.jpg" alt="Image 1" >
     <img src="ReceptionMenu-b.jpg" alt="Image 2" >
