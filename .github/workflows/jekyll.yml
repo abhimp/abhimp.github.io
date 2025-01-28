@@ -42,7 +42,7 @@ jobs:
       - name: Debug _site Directory
         run: |
           echo "Listing _site directory contents"
-          ls -lR _site
+          ls -lAR _site
 
       - name: Remove Hard Links (Ensure Compatibility)
         run: |
@@ -73,7 +73,7 @@ jobs:
       - name: List Files in Artifact
         run: |
           echo "Listing all files in the artifact:"
-          ls -lR _site  # Replace 'github-pages' with the folder where the artifact is downloaded
+          ls -lAR _site  # Replace 'github-pages' with the folder where the artifact is downloaded
 
       - name: Enable Debug Logs
         run: |
