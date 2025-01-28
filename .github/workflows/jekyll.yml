@@ -21,6 +21,8 @@ jobs:
           submodules: false
           fetch-depth: 1
 
+      - name: Remove Travel images
+        run: rm -rf travelImages
 
       - name: imagedata
         run: python3 loadImageData.py
@@ -37,13 +39,15 @@ jobs:
       - name: Build Jekyll Site
         run: bundle exec jekyll build --destination _site
 
+      - name: Debug _site Directory
+        run: |
+          echo "Listing _site directory contents"
+          ls -lR _site
+
       - name: Remove Hard Links (Ensure Compatibility)
         run: |
           find _site -type l -exec rm {} \;  # Remove symlinks if any
           rsync -a --copy-links _site/ _site_fixed/ && rm -rf _site && mv _site_fixed _site  # Replace hard links
-
-      - name: Remove Travel images
-        run: rm -rf travelImages
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-artifact@v4
