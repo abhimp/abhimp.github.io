@@ -50,7 +50,7 @@ jobs:
       #     rsync -a --copy-links _site/ _site_fixed/ && rm -rf _site && mv _site_fixed _site  # Replace hard links
 
       - name: Upload GitHub Pages Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v4
         with:
           name: github-pages  # ✅ Must be exactly "github-pages"
           path: _site  # ✅ Path to the cleaned site
