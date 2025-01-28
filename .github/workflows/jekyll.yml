@@ -18,6 +18,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+
       - name: imagedata
         run: python3 loadImageData.py
 
@@ -33,11 +34,16 @@ jobs:
       - name: Build Jekyll Site
         run: bundle exec jekyll build --destination _site
 
-      - name: Upload Artifact
+      - name: Remove Hard Links (Ensure Compatibility)
+        run: |
+          find _site -type l -exec rm {} \;  # Remove symlinks if any
+          rsync -a --copy-links _site/ _site_fixed/ && rm -rf _site && mv _site_fixed _site  # Replace hard links
+
+      - name: Upload GitHub Pages Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
-          path: _site  # Path to the built site
+          name: github-pages  # ✅ Must be exactly "github-pages"
+          path: _site  # ✅ Path to the cleaned site
           retention-days: 1  # Adjust if needed
 
   deploy:
@@ -48,10 +54,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Download Artifact
+      - name: Download GitHub Pages Artifact
         uses: actions/download-artifact@v4
         with:
-          name: github-pages
+          name: github-pages  # ✅ Must match the artifact name from "build" job
           path: _site
 
       - name: Deploy to GitHub Pages
