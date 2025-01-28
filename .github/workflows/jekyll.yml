@@ -75,7 +75,16 @@ jobs:
           echo "Listing all files in the artifact:"
           ls -lR _site  # Replace 'github-pages' with the folder where the artifact is downloaded
 
+      - name: Enable Debug Logs
+        run: |
+          echo "Enabling debug logs"
+          echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+          echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
+          echo "ACTIONS_TOOL_CACHE_DEBUG=true" >> $GITHUB_ENV
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v2
+
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
