@@ -50,11 +50,23 @@ jobs:
       #     rsync -a --copy-links _site/ _site_fixed/ && rm -rf _site && mv _site_fixed _site  # Replace hard links
 
       - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
+        id: deployment
         with:
           name: github-pages  # ✅ Must be exactly "github-pages"
           path: _site  # ✅ Path to the cleaned site
           retention-days: 1  # Adjust if needed
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
   # deploy:
   #   environment:
   #     name: github-pages
@@ -66,26 +78,26 @@ jobs:
   #       id: deployment
   #       uses: actions/deploy-pages@v4
 
-  deploy:
-    # Add a dependency to the build job
-    needs: build
+  # deploy:
+  #   # Add a dependency to the build job
+  #   needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+  #   # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+  #   permissions:
+  #     pages: write      # to deploy to Pages
+  #     id-token: write   # to verify the deployment originates from an appropriate source
 
-    # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  #   # Deploy to the github-pages environment
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
 
-    # Specify runner + deployment step
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
+  #   # Specify runner + deployment step
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
 
   # deploy:
   #   needs: build
