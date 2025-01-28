@@ -73,7 +73,7 @@ jobs:
       - name: List Files in Artifact
         run: |
           echo "Listing all files in the artifact:"
-          ls -lR ./github-pages  # Replace 'github-pages' with the folder where the artifact is downloaded
+          ls -lR _site  # Replace 'github-pages' with the folder where the artifact is downloaded
 
 
       - name: Deploy to GitHub Pages
