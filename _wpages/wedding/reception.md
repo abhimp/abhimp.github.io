@@ -1,7 +1,7 @@
 ---
 layout: wedding
 title: Reception
-menutype: wedding
+menutype: wedding1
 ---
 
 <!-- <embed src="ReceptionMenu.pdf" width="100%" height="100%" type="application/pdf" /> -->
