@@ -42,7 +42,7 @@ jobs:
       - name: Debug _site Directory
         run: |
           echo "Listing _site directory contents"
-          ls -lAR _site
+          ls -laR _site
 
       # - name: Remove Hard Links (Ensure Compatibility)
       #   run: |
