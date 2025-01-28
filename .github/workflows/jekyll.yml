@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 1
 
 
       - name: imagedata
@@ -38,6 +41,9 @@ jobs:
         run: |
           find _site -type l -exec rm {} \;  # Remove symlinks if any
           rsync -a --copy-links _site/ _site_fixed/ && rm -rf _site && mv _site_fixed _site  # Replace hard links
+
+      - name: Remove Travel images
+        run: rm -rf travelImages
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-artifact@v4
