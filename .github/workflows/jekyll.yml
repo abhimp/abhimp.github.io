@@ -70,6 +70,12 @@ jobs:
           name: github-pages  # ✅ Must match the artifact name from "build" job
           path: _site
 
+      - name: List Files in Artifact
+          run: |
+            echo "Listing all files in the artifact:"
+            ls -lR ./github-pages  # Replace 'github-pages' with the folder where the artifact is downloaded
+
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
