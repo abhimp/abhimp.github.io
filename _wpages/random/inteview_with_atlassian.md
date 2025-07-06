@@ -65,11 +65,42 @@ The Code-Design interview is a special interview where the interviewer checks th
 
 After the initial introduction, the interviewer described the problem. Initially, they provided very few bits of the problem. I asked a ton of questions, and he revealed more parts of the problem. He was expecting TDD. I had never developed anything with TDD before. However, as I started writing code, I understood how easy it is to get confident in the code once I have TDD.
 
-The initial problem was as follows: Write a Cost Explorer. Basically, a product has different packages, and users want to know the cost for a year. The problem is extremely simple, but TDD makes it time-consuming to develop. Anyway, once I completed this task, the interviewer extended it to provide estimation only to the end of the calendar year. I extended it. However, time was almost up, so the interviewer asked a few follow-up questions. The interview was good. I am satisfied as I have learned something.
+The initial problem was as follows: Write a Cost Explorer. Basically, a product has different packages, and users want to know the cost for a year. The problem was extremely simple, but TDD made it time-consuming to develop. Anyway, once I completed this task, the interviewer extended it to provide estimation only to the end of the calendar year. I extended it. However, time was almost up, so the interviewer asked a few follow-up questions. The interview was good. I was satisfied as I learned something.
 
 ### Stage-2.2: Coding Interview: Data Structure and Algorithm
-The next day was the traditional Data Structure and Algorithm coding round. The interviewer provided me with the problem with minimal information. I asked several questions and finally understood that the problem was about `finding the closest parent of two or more nodes`. The problem itself is very easy; however, it took time to write auxiliary code and a little time to debug. I finished it in time. He did not ask me any follow-up questions. I am kind of disappointed with this interview.
+The next day was the traditional Data Structure and Algorithm coding round. The interviewer provided me with the problem with minimal information. I asked several questions and finally understood that the problem was about `finding the closest parent of two or more nodes`. The problem itself was very easy; however, it took time to write auxiliary code and a little time to debug. I finished it in time. He did not ask me any follow-up questions. I was kind of disappointed with this interview.
 
 The second interview was easy; however, I think I may have asked too many questions, which led to diluting the problem that I solved.
 
 The interview coordinator might call back next week.
+
+Well, the interview coordinator did call for the next round of interviews the next day.
+
+## Stage-2: System Design Interview
+My next interview was the System Design Interview. I scheduled it a week after the last interview so that I would have enough time to prepare. I was very scared of the interview. The interview coordinator gave me a lot of points.
+
+The interview started as usual. The interviewer was a senior software developer from a team and had been employed there for the last 10 months.
+
+After the introduction, the interviewer asked me to design a top feed system. We started with simple requirements gathering, followed by schema design and a data flow diagram.
+
+The interview was okay. The interviewer seemed okay. I may have misunderstood certain points and designed the system accordingly. I have designed the system correctly. However, I may not have matched the interviewer's expectations exactly. At the end, it will be his decision.
+
+At the end of the interview, we had a really great conversation about his work in the team. What do they do and how is it useful. He was very excited about his work and telling everything in detail.
+
+Now it is time to wait for a call back.
+
+It has been a few days, and I have not received a call. So, I did not crack the System Design round.
+
+# Experience
+
+Atlassian is a big company. I have never worked in such companies. While I was working as a senior engineer at VDX.TV, I never got to experience the senior engineer role. They never even let me access the system part. Also, VDX.TV is not as big as Atlassian, so they don't even need to handle a large user base. So, I never had any experience handling large data or a large user base.
+
+Overall, my experience with Atlassian was great. The Karat interview studio was different. I did not know that I could solve two coding problems within 30 minutes. However, I did. Those problems weren't known to me, but they were simpler problems.
+
+The code design round was awesome. Time was a bit tight, and it required a lot of extra coding. However, that was the idea. The follow-up questions were great. The interviewer was great as well.
+
+The coding round wasn't satisfying, as the problem needed too much auxiliary code and it took too much time. On top of that, the interviewer wasn't super engaging and seemed a little drowsy. He did not ask any follow-up questions, although we had time.
+
+My inexperience in system design and system design interviews caused the problem. I know there is no perfect or correct answer, and I gave the best solution possible. However, the interviewer was inexperienced and new, so he was probably following the script and expecting the exact answer from me. While I am satisfied with the solution and the interview, he wasn't.
+
+Overall, I learned what to expect from a system design interview. I need to know the cooling period.
