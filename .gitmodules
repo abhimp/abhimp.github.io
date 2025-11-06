@@ -10,3 +10,6 @@
 [submodule "travelImages/2024"]
 	path = travelImages/2024
 	url = ssh://git@gitlab.com:/abhimp/trimg2024
+[submodule "travelImages/2025"]
+	path = travelImages/2025
+	url = git@gitlab.com:abhimp/trimg2025.git
