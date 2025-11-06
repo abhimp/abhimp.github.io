@@ -1,6 +1,6 @@
 ---
 layout: travel
-title: Bishnupur
+title: "Terracotta Tales: A Winter Visit to Bishnupur"
 menutitle: Bishnupur
 menutype: travel
 needPhotoSwipe: true
@@ -16,11 +16,9 @@ draft: false
 
 {% include function_travelimg.html img="Bishnupur-01.jpg" alt="Trip to Bishnupur" %}
 
+Step into [Bishnupur], and you step back in time. This historic town in West Bengal, once the glorious capital of the [Malla kings][Mallabhum_kingdom], is a living museum where every brick and carving whispers tales of a bygone era. Famous for its breathtaking terracotta temples, classical music, and exquisite Baluchari sarees, Bishnupur offers a journey into a world of unique architecture and rich cultural heritage.
 
-
-[Bishnupur] is a historic town in West Bengal, India, famous for its terracotta temples, classical music, and Baluchari sarees. Once the capital of the [Malla kings][Mallabhum_kingdom], it is renowned for its unique architecture and rich cultural heritage.
-
-I have been to [Bishnupur] multiple times, and with each visit, I feel a deeper connection to its storied past. The town has a unique way of making history feel tangible. My most recent trip was with my friend Malay; we met up in Bishnupur, with me traveling from my hometown in Birbhum and him from Kharagpur.
+I've returned to this magical place multiple times, and with each visit, I feel a deeper connection to its storied past. This time, on a crisp December day, I met up with my friend Malay to once again wander through its historic lanes and rediscover the artistry of the Malla dynasty. I traveled from my hometown in Birbhum, and he joined from Kharagpur, both of us ready to be captivated by the town's timeless charm.
 
 Our tour began at the iconic [Rasmancha]. Built in 1600 CE, this unique pyramidal structure is unlike any other temple in Bengal. It wasn't built for a single deity but as a grand stage to display idols from all the surrounding temples during the annual Ras festival. Its massive brick arches and terracotta-tiled roof make for an imposing and unforgettable sight.
 
