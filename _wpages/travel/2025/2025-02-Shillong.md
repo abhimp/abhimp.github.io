@@ -6,7 +6,7 @@ menutype: travel
 needPhotoSwipe: true
 tripDate: 2025-02-21
 assetPath: 2025-02-Shillong
-draft: true
+draft: false
 ---
 
 ## Honeymoon to Shillong
