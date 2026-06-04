@@ -20,7 +20,16 @@ for y in years:
     except urllib.error.HTTPError:
         print(f"Could not fetch {y}")
 
+imgFullData = {
+    "metadata": {
+        "base": "https://abhimp.gitlab.io/trimg",
+        "thumb": "reduced",
+        "full": "moded"
+    },
+    "data": imgData
+}
+
 with open(fileName, "w") as fp:
-    json.dump(imgData, fp)
+    json.dump(imgFullData, fp)
 
 print("Dumped into", fileName)

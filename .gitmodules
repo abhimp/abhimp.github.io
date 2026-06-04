@@ -13,3 +13,6 @@
 [submodule "travelImages/2025"]
 	path = travelImages/2025
 	url = git@gitlab.com:abhimp/trimg2025.git
+[submodule "travelImages/2026"]
+	path = travelImages/2026
+	url = https://gitlab.com/abhimp/trimg2026.git
