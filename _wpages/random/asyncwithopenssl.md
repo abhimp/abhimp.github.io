@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Openssl and single threaded application
+title: OpenSSL and single threaded application
 menutype: blog
 menu_order: 20
 plink: asyncOpenSSL
@@ -8,82 +8,255 @@ plink: asyncOpenSSL
 
 ## OpenSSL
 
-OpenSSL is one of the greatest opensource tool we have. It is used by many project as it is defacto tool for SSL based solutions.
+OpenSSL is one of the most widely used open-source libraries for TLS/SSL communication.
 
-The best thing about OpenSSL is that it is platform agonastic and ease of use. Writing portable code is so much easier with OpenSSL.
+It is platform agnostic and supports different I/O backends through BIOs. The same TLS layer can work with blocking sockets, non-blocking sockets, custom BIOs, and memory BIOs.
 
-Also OpenSSL support different kind of IOs and very easy adapt a new one if it does exists already. It also support both blocking and non-blocking IO operation. The blocking IO operation is easy and simple. OpenSSL would wait until underlying operation ends. It works out of the box, easy and simple. However, it needs system threads to handle each side of a connection which could be wastfull. The non-blocking IO is little involving and have several caveates.
+Blocking I/O is simple: call `SSL_read()` or `SSL_write()`, and OpenSSL waits until the operation completes. This is easy to use, but a server often needs one thread per active connection.
 
-### OpenSSL with non-blocking IO
-Non-blocking IO is a way to working to multiple IOs from a single thread. Here, IO operations wont block if it can perform the operation rather return with appropriate notification. So, program can perform opertaion in loop. However this method causes wasting CPU spining. So, the defacto standard is to use some method to get notification about the possibily of available operation on IOs. The implementation of such tool is platform dependent and beyond the scope of this documentation. However, such tools works on the system IOs not on the application level IOs.
+Non-blocking I/O allows one thread to handle many connections. The implementation is not difficult, but some OpenSSL-specific details must be handled correctly.
 
-So, such notification mechanism are not capable of polling OpenSSL. So, to use OpenSSL, with non-blocking IOs, we have to use the notification mechanism on Non-Blocking IOs and translate them corresponding SSL connection.
+### OpenSSL with non-blocking I/O
 
-Lets see how can we read data from SSL connection using non-blocking IOs.
+In non-blocking I/O, a read or write operation returns if it cannot make progress immediately. The application retries the operation later.
+
+Event-driven programs use `select`, `poll`, `epoll`, `kqueue`, or IOCP to avoid spinning. These APIs watch the system socket, not the OpenSSL `SSL` object. This distinction matters:
+
+- the kernel knows whether the socket is readable or writable;
+- OpenSSL knows whether decrypted application data is already buffered inside `SSL`;
+- the event loop must bridge these two worlds.
+
+The application must watch the socket, call the required `SSL_*` function, inspect `SSL_get_error()`, and update the event interest.
+
+The following is a minimal non-blocking read loop for one connection.
 
 ```c
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/select.h>
+#include <poll.h>
+#include <stdio.h>
 
 int non_blocking_ssl_read(SSL *ssl, int fd, char *buf, int buf_size) {
-    int ret;
-    fd_set readfds;
-
-    // Set the file descriptor to non-blocking
     int flags = fcntl(fd, F_GETFL, 0);
     fcntl(fd, F_SETFL, flags | O_NONBLOCK);
 
     while (1) {
-        FD_ZERO(&readfds);
-        FD_SET(fd, &readfds);
+        int ret = SSL_read(ssl, buf, buf_size);
 
-        // Wait for the socket to be readable
-        ret = select(fd + 1, &readfds, NULL, NULL, NULL);
+        if (ret > 0) {
+            return ret;
+        }
 
-        if (ret < 0) {
-            perror("select");
+        int ssl_error = SSL_get_error(ssl, ret);
+        struct pollfd pfd = {
+            .fd = fd,
+            .events = 0,
+        };
+
+        switch (ssl_error) {
+        case SSL_ERROR_WANT_READ:
+            pfd.events = POLLIN;
+            break;
+
+        case SSL_ERROR_WANT_WRITE:
+            pfd.events = POLLOUT;
+            break;
+
+        case SSL_ERROR_ZERO_RETURN:
+            return 0;
+
+        default:
+            fprintf(stderr, "SSL_read error: %d\n", ssl_error);
             return -1;
-        } else if (FD_ISSET(fd, &readfds)) {
-            // Try to read from the SSL connection
-            ret = SSL_read(ssl, buf, buf_size);
+        }
 
-            if (ret > 0) {
-                // Successfully read data
-                printf("Read %d bytes from SSL connection\n", ret);
-                return ret;
-            } else {
-                int ssl_error = SSL_get_error(ssl, ret);
-                if (ssl_error == SSL_ERROR_WANT_READ || ssl_error == SSL_ERROR_WANT_WRITE) {
-                    // SSL wants to retry the read or write operation
-                    continue;
-                } else {
-                    // Some other error occurred
-                    fprintf(stderr, "SSL_read error: %d\n", ssl_error);
-                    return -1;
-                }
-            }
+        ret = poll(&pfd, 1, -1);
+        if (ret < 0) {
+            perror("poll");
+            return -1;
         }
     }
 }
 ```
 
-This solution above looks ok. It also works fine most of the cases. However there is a caveate.
+This is still a simplified loop. The key rule is: do not assume that read means `POLLIN` and write means `POLLOUT`. `SSL_read()` may return `SSL_ERROR_WANT_WRITE`, and `SSL_write()` may return `SSL_ERROR_WANT_READ`.
 
-#### The caveat
-Lets assume a scenerio. The sender sends 2048bytes over the SSL connection, then it expects some output from the other end. The receiver side receives only 1048bytes at a time.
+In a real event loop, each TLS connection usually needs state:
 
-In this particular scenerio, receiver side may not recieve the entire msg and may not reply ever.
+```c
+typedef enum {
+    TLS_WAIT_NONE,
+    TLS_WAIT_READ,
+    TLS_WAIT_WRITE,
+} tls_wait;
 
-SSL send and receive messages in chunks. It means, while sending data, it encrypts a chunk of data and send the encrypted data to otherside. The receiver on the other hand, it process the encrypted data only when it receives entire chunks. It might needs to read multiple time from the IO. Once, it process a chunk, return the amount of data requested by the application, and keep the rest in the memory.
+typedef struct {
+    SSL *ssl;
+    int fd;
+    tls_wait wait_for;
+    int app_read_pending;
+} tls_connection;
+```
 
-In our scenerios, we requested for 1024 bytes, so, OpenSSL would keep another 1024 bytes in the memory. As there is no more data in the system IO, `epoll` wont return any more event. So, the application would hang forever.
+The read step becomes:
 
-**Solutions**
-The straight forward solution is to read the ssl as long as it doesn't give any error. However, it might strave other connections.
+```c
+static int drive_ssl_read(tls_connection *conn, char *buf, int buf_size) {
+    int ret = SSL_read(conn->ssl, buf, buf_size);
 
-So, the best solution is to make a mechanism to create a fake read call.
+    if (ret > 0) {
+        conn->wait_for = TLS_WAIT_NONE;
+        conn->app_read_pending = SSL_pending(conn->ssl) > 0;
+        return ret;
+    }
+
+    switch (SSL_get_error(conn->ssl, ret)) {
+    case SSL_ERROR_WANT_READ:
+        conn->wait_for = TLS_WAIT_READ;
+        return -2;
+
+    case SSL_ERROR_WANT_WRITE:
+        conn->wait_for = TLS_WAIT_WRITE;
+        return -2;
+
+    case SSL_ERROR_ZERO_RETURN:
+        return 0;
+
+    default:
+        return -1;
+    }
+}
+```
+
+Here `-2` means "retry later". The application can use any internal status code.
+
+### Buffered data caveat
+
+The socket event is not enough.
+
+Assume the sender writes 2048 bytes over the TLS connection, then waits for a response. The receiver reads only 1024 bytes at a time.
+
+TLS works with records. OpenSSL reads encrypted bytes from the socket, decrypts complete records, returns the amount requested by the application, and keeps the remaining decrypted bytes in its internal buffer.
+
+In this scenario, the application asks for 1024 bytes. OpenSSL may decrypt a record containing 2048 bytes, return 1024 bytes, and keep the remaining 1024 bytes internally. The kernel socket may have no more readable bytes. If the event loop waits only for another socket-read event, it may wait forever.
+
+The socket has no readable event, but the `SSL` object has readable application data.
+
+Use `SSL_pending()` to detect this. It returns the number of processed application bytes already buffered in the `SSL` object. If `SSL_pending(ssl) > 0`, schedule another `SSL_read()` without waiting for the socket.
+
+So, after a successful `SSL_read()`, the event loop should check:
+
+```c
+if (SSL_pending(ssl) > 0) {
+    schedule_internal_read_event(connection);
+}
+```
+
+This is an internal read event. It is not generated by the kernel.
+
+### Avoid starving other connections
+
+One solution is to keep reading until `SSL_read()` returns `SSL_ERROR_WANT_READ` or `SSL_ERROR_WANT_WRITE`. This is correct, but it can starve other connections.
+
+A fair event-loop design is:
+
+- handle the socket event;
+- call `SSL_read()` or `SSL_write()`;
+- process a bounded amount of work;
+- if `SSL_pending()` says more decrypted data is available, enqueue an internal read event;
+- return to the event loop so other connections also get a chance.
+
+For example:
+
+```c
+#define MAX_TLS_READS_PER_TICK 8
+
+void on_tls_readable(tls_connection *conn) {
+    char buf[4096];
+
+    for (int i = 0; i < MAX_TLS_READS_PER_TICK; ++i) {
+        int ret = drive_ssl_read(conn, buf, sizeof(buf));
+
+        if (ret > 0) {
+            handle_application_data(conn, buf, ret);
+
+            if (SSL_pending(conn->ssl) == 0) {
+                return;
+            }
+        }
+
+        if (ret == -2) {
+            update_poll_interest(conn);
+            return;
+        }
+
+        if (ret == 0) {
+            close_connection(conn);
+            return;
+        }
+
+        report_tls_error(conn);
+        close_connection(conn);
+        return;
+    }
+
+    if (SSL_pending(conn->ssl) > 0) {
+        schedule_internal_read_event(conn);
+    }
+}
+```
+
+This keeps the loop fair and still drains OpenSSL-buffered data.
 
 ### OpenSSL error propagation
+
+The return value of `SSL_read()`, `SSL_write()`, `SSL_connect()`, `SSL_accept()`, or `SSL_do_handshake()` is not enough. If the operation does not succeed, immediately call `SSL_get_error(ssl, ret)` with the same `SSL *` and return value.
+
+The important results are:
+
+- `SSL_ERROR_WANT_READ`: retry the same operation when the underlying socket is readable;
+- `SSL_ERROR_WANT_WRITE`: retry the same operation when the underlying socket is writable;
+- `SSL_ERROR_ZERO_RETURN`: the peer sent a TLS `close_notify`;
+- `SSL_ERROR_SYSCALL`: inspect the system error and the OpenSSL error queue;
+- `SSL_ERROR_SSL`: a TLS protocol or library error occurred.
+
+Two rules are important.
+
+First, `WANT_READ` and `WANT_WRITE` are not fatal errors. They are retry instructions.
+
+Second, `SSL_ERROR_WANT_WRITE` has a strict retry rule. If `SSL_write()` or `SSL_write_ex()` returns `SSL_ERROR_WANT_WRITE`, retry the same operation with the same data. In the default mode this means:
+
+- same buffer pointer;
+- same length;
+- same bytes in the buffer.
+
+Do not free the buffer, reuse it for other data, append more data to the same pending write, or retry with a different pointer. `SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER` relaxes only the pointer requirement. The pending write must still contain the same data and length.
+
+Also, OpenSSL's error queue is thread-local and affects `SSL_get_error()`. Do not call other OpenSSL functions between the failed TLS operation and `SSL_get_error()`.
+
+### Practical rules
+
+For single-threaded OpenSSL code:
+
+1. Put the underlying socket in non-blocking mode.
+2. Treat every TLS operation as a state machine step.
+3. Always call `SSL_get_error()` immediately when a TLS operation does not succeed.
+4. Wait for read or write readiness based on `SSL_get_error()`, not based on whether the original operation was read or write.
+5. After a successful read, check `SSL_pending()`.
+6. If `SSL_pending() > 0`, schedule an internal read event instead of waiting for the kernel socket.
+7. Limit how much work one connection can do in one loop iteration.
+8. Keep write buffers stable while a write operation is pending.
+
+### Conclusion
+
+OpenSSL works well with single-threaded event-driven applications, but it is not a plain socket wrapper. Socket readiness only describes the kernel socket. It does not describe decrypted bytes buffered inside OpenSSL.
+
+Drive each `SSL` object as a small state machine. Kernel events handle socket readiness. Internal events handle buffered application data. This is the main distinction needed for correct non-blocking OpenSSL code.
+
+### References
+
+- [OpenSSL: SSL_read](https://docs.openssl.org/3.3/man3/SSL_read/)
+- [OpenSSL: SSL_get_error](https://docs.openssl.org/1.1.1/man3/SSL_get_error/)
+- [OpenSSL: SSL_pending and SSL_has_pending](https://docs.openssl.org/3.3/man3/SSL_pending/)
