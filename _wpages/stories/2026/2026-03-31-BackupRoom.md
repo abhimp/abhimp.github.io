@@ -47,21 +47,6 @@ draft: true
 # The Backup Room
 ---
 
-<style>
-    .stories pre{
-        background-color: black;
-        padding-left: 5px;
-        margin-left: -5px;
-        border: 1px solid #333;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    }
-    .stories pre code {
-        color: white;
-        font-family: 'Courier New', Courier, monospace;
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    }
-</style>
-
 The room wasn’t supposed to exist.
 
 Arjun found it on a Tuesday at 3:17 PM while looking for a broken network switch. The office building was old, older than the company that now occupied it, and full of small architectural leftovers—sealed doors, mismatched corridors, staircases that led nowhere useful.
