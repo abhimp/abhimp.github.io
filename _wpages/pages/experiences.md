@@ -5,8 +5,8 @@ menutype: about
 menu_order: 40
 ---
 
-## Microsoft
-### Senior Engineer // Hyderabad, India // Dec 2025 - Present
+## Microsoft, India
+### Senior Engineer // Hyderabad // Dec 2025 - Present
 
 {:.text-justify}
 I work with the Windows Search team at Microsoft, building and improving the search experience in Windows.
