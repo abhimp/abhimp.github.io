@@ -5,11 +5,18 @@ menutype: about
 menu_order: 40
 ---
 
-## VDX.TV
-### Senior Engineer // Remote, India // 2021 - 
+## Microsoft
+### Senior Engineer // Hyderabad, India // Dec 2025 - Present
 
 {:.text-justify}
-VDX.TV is an online advertisement provider. We serve advertising to websites and Internet TVs. While we have a vast product line in online advertisement, I work in the team directly responsible for serving advertisements on websites or Internet TVs. The company's revenue depends on the availability and performance of our servers.
+I work with the Windows Search team at Microsoft, building and improving the search experience in Windows.
+
+
+## VDX.TV
+### Senior Engineer // Remote, India // 2021 - 2025
+
+{:.text-justify}
+VDX.TV is an online advertisement provider. We served advertising to websites and Internet TVs. While the company had a vast product line in online advertisement, I worked in the team directly responsible for serving advertisements on websites or Internet TVs. The company's revenue depended on the availability and performance of our servers.
 
 
 ## Rovi Incorporation
