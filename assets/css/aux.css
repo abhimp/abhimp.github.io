@@ -60,11 +60,6 @@ code > pre, pre > code {
 	margin-top: -1.5em;
 } */
 
-.system p {
-	margin-bottom: .5em;
-}
-
-
 #navPanel .indent-1 {
     display: inline-block;
     width: 1em;
@@ -120,59 +115,68 @@ code > pre, pre > code {
 	text-decoration: none;
 }
 
-#normal-text h1,
-#normal-text h2,
-#normal-text h3,
-#normal-text h4,
-#normal-text h5,
-#normal-text h5,
-#normal-text h6{
-	/* color: #96a9b5; */
+/* ==========================================================================
+   Canonical content typography
+   Single source of truth for body content across every subpage layout.
+   Baseline taken from the travel pages (heading weight 500, travel size
+   scale), with justified body text. Applied via class="page-content" on the
+   main content <section> of each layout.
+   ========================================================================== */
+
+.page-content {
+	color: #000;
+	text-align: justify;
+}
+
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6,
+.page-content .h1,
+.page-content .h2,
+.page-content .h3,
+.page-content .h4 {
+	font-weight: 500;
+	margin-bottom: .5em;
+}
+
+.page-content h1, .page-content .h1 { font-size: 2.1em; }
+.page-content h2, .page-content .h2 { font-size: 1.8em; }
+.page-content h3, .page-content .h3 { font-size: 1.25em; }
+.page-content h4, .page-content .h4 { font-size: 1em; }
+.page-content h5 { font-size: .9em; }
+.page-content h6 { font-size: .8em; }
+
+.page-content p {
 	margin-bottom: 1em;
 }
 
-
-#normal-text p {
-	margin-bottom: 2em;
+/* Justification is for prose only — left-align image rows so multiple
+   images pack to the left instead of being stretched across the width. */
+.page-content p:has(img) {
+	text-align: left;
 }
 
-#normal-text h1{
-	font-size: 2em;
-}
-#normal-text h2{
-	font-size: 1.75em;
-}
-#normal-text h3{
-	font-size: 1.5em;
-}
-#normal-text h4{
-	font-size: 1.25em;
-}
-#normal-text h5{
-	font-size: 1em;
-}
-#normal-text h6{
-	font-size: .75em;
-}
-
-#normal-text em, #normal-text i {
+.page-content em, .page-content i {
 	font-style: italic;
 }
 
-#normal-text strong, #normal-text b {
-	font-weight: 400;
+.page-content strong, .page-content b {
+	font-weight: bold;
 }
 
-#normal-text a.authorlink {
+.page-content a.authorlink {
     color: #575757;
     text-decoration: underline;
 }
 
-#normal-text a.authorlink:hover {
+.page-content a.authorlink:hover {
     color: #ED391B;
 }
 
-#normal-text, .text-justify{
+.text-justify {
     text-align: justify;
 }
 
@@ -185,12 +189,207 @@ code > pre, pre > code {
 	color: #ED391B;
 }
 
-#normal-text .nomargin,
-#normal-text .nomargin h1,
-#normal-text .nomargin h2,
-#normal-text .nomargin h3,
-#normal-text .nomargin h4,
-#normal-text .nomargin h5,
-#normal-text .nomargin h6 {
+.page-content .nomargin,
+.page-content .nomargin h1,
+.page-content .nomargin h2,
+.page-content .nomargin h3,
+.page-content .nomargin h4,
+.page-content .nomargin h5,
+.page-content .nomargin h6 {
 	margin: 0;
+}
+
+
+/* ==========================================================================
+   Travel / stories gallery + media
+   Shared gallery namespace (`.travel`). NOTE: travel.js keys on `img.travel`
+   and _includes/function_travelimg.html emits class="travel" on every image
+   (on stories pages too) — do not rename this class. Moved here verbatim from
+   the inline <style> blocks that previously lived in _layouts/travel.html and
+   _layouts/stories.html. Typography for these pages comes from .page-content.
+   ========================================================================== */
+
+/* The Modal (background) */
+.travel.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.travel.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  max-width: 90%;
+}
+
+/* The Close Button */
+.travel.modalclose {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.travel.modalclose:hover,
+.travel.modalclose:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.travel.mySlides {
+  display: none;
+  width: fit-content;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.travel.prev,
+.travel.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+/* Position the "next button" to the right */
+.travel.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.travel.prev:hover,
+.travel.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.travel.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.travel.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.travel.demo {
+  opacity: 0.6;
+}
+
+.travel.active,
+.travel.demo:hover {
+  opacity: 1;
+}
+
+img.travel {
+  transition: 0.3s;
+  max-width: 100%;
+  max-height: 60vh;
+}
+
+img.travel.imgSlide {
+    display: block;
+    margin: 0 auto;
+}
+
+img.travel:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.travel.yt-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.travel.yt-responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* PhotoSwipe custom caption */
+.pswp__custom-caption {
+  color: #fff;
+  width: calc(100% - 32px);
+  padding: 2px 8px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 16px;
+  text-align: center;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+               1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.pswp__custom-caption a {
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   Stories — dark code blocks (moved from BackupRoom.md inline <style>)
+   ========================================================================== */
+.stories pre {
+    background-color: black;
+    padding-left: 5px;
+    margin-left: -5px;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.stories pre code {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+
+/* ==========================================================================
+   Wedding reception image grid (moved from reception.md inline <style>)
+   ========================================================================== */
+.wedingreceptionimgcontainer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    flex-wrap: wrap; /* Wrap to next line if needed */
+    gap: 10px; /* Add some space between images */
+}
+.wedingreceptionimgcontainer img {
+    max-width: 100%; /* Ensure responsiveness */
+    height: auto;
 }
