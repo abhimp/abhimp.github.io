@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Theme: light (default) / dark
+   The root theme class lives on <html> (set by the inline boot script in
+   head.html before first paint, so there is no flash). Light is the untouched
+   default produced by main.css/aux.css — only the dark overrides live here.
+
+   The site chrome (#header, #banner, #features, .dropotron) is already dark
+   slate, so dark mode only flips the light content surfaces: body, #content
+   and its cards, content/heading text, #footer, #copyright, code blocks and
+   the mobile nav.
+   ========================================================================== */
+
+/* Soft dark-gray palette, in the same slate family as the existing header. */
+html.dark {
+	--bg:         #16191c;  /* page background        */
+	--content-bg: #1b1e22;  /* #content area          */
+	--card-bg:    #23272c;  /* #content section cards */
+	--text:       #dfe3e6;  /* body / prose text      */
+	--heading:    #eef2f4;  /* headings               */
+	--muted:      #9fb0b8;  /* footer / copyright     */
+	--border:     #333a40;  /* list / section borders */
+	--code-bg:    #1e1e1e;  /* code block background  */
+	--code-fg:    #e08a8a;  /* inline code (soft red) */
+	--accent:     #C75940;  /* links — muted red, easier on dark */
+}
+
+/* --- Page + content surfaces ------------------------------------------- */
+html.dark body                { background: var(--bg); color: var(--text); }
+html.dark #content            { background: var(--content-bg); }
+html.dark #content section    { background: var(--card-bg); }
+
+/* Text: override the direct color rules so prose isn't black-on-dark. */
+html.dark #content,
+html.dark .page-content       { color: var(--text); }
+
+html.dark #content h2,
+html.dark #content h3,
+html.dark #footer h2,
+html.dark .page-content h1,
+html.dark .page-content h2,
+html.dark .page-content h3,
+html.dark .page-content h4,
+html.dark .page-content h5,
+html.dark .page-content h6    { color: var(--heading); }
+
+/* Links keep the accent; the sidebar "current" link is black in light mode
+   (would vanish on dark) — flip it to body text colour. */
+html.dark #content a          { color: var(--accent); }
+html.dark #content a.current  { color: var(--text); }
+
+/* aux.css hardcodes the light accent (#ED391B) on these hover states; use the
+   dark accent so the harsh red doesn't reappear on hover. */
+html.dark .no-herf-hl a:hover,
+html.dark #content .no-herf-hl a:hover,
+html.dark .page-content a.authorlink:hover,
+html.dark #content a.nohighlight:hover { color: var(--accent); }
+
+/* List-item separators inside content cards. */
+html.dark #content .quote-list li,
+html.dark #content .link-list li,
+html.dark #content .check-list li { border-bottom-color: var(--border); }
+
+/* --- Footer + copyright ------------------------------------------------- */
+/* Light theme paints a white text-shadow halo; remove it on dark. */
+html.dark #footer             { color: var(--muted); text-shadow: none; }
+html.dark #footer a           { color: var(--muted); }
+html.dark #footer .quote-list li,
+html.dark #footer .link-list li,
+html.dark #footer .check-list li {
+	border-top-color: var(--border);
+	border-bottom-color: var(--border);
+}
+
+html.dark #copyright {
+	color: var(--muted);
+	border-top-color: var(--border);
+	box-shadow: none;
+	text-shadow: none;
+}
+html.dark #copyright a        { color: var(--muted); }
+
+/* --- Code ---------------------------------------------------------------- */
+/* pygments-css-nativ.css already uses light tokens, so a dark pre background
+   makes highlighted code read well. */
+html.dark pre                 { background: var(--code-bg); }
+html.dark code,
+html.dark kbd,
+html.dark samp                { color: var(--code-fg); }
+
+/* --- Mobile slide-in nav ------------------------------------------------- */
+html.dark #navPanel,
+html.dark #titleBar           { background: var(--bg); }
+
+/* ==========================================================================
+   Theme toggle control (lives in the nav, inside the dark header)
+   ========================================================================== */
+#theme-toggle {
+	cursor: pointer;
+	font-size: 1.15em;
+	line-height: 1;
+	-webkit-user-select: none;
+	user-select: none;
+}
